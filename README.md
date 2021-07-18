@@ -5,7 +5,6 @@ Portfolio
 * Case study taken from Coursera
 * Details
 
-![](/images/Average%20Duration%20of%20Rides%20Per%20Day%20for%20each%20User%20Type.png){:height="50%" width="50%"}
-<img src="https://github.com/chinzhengjie/ZJ_Portfolio/blob/main/images/Average%20Duration%20of%20Rides%20Per%20Day%20for%20each%20User%20Type.png" width="100" height="100">
+<img src="https://github.com/chinzhengjie/ZJ_Portfolio/blob/main/images/Average%20Duration%20of%20Rides%20Per%20Day%20for%20each%20User%20Type.png" width="500" height="500">
 
 
