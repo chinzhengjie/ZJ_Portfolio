@@ -1,0 +1,294 @@
+library(readr)
+library(tidyverse)
+library(ggplot2)
+library(lubridate)
+
+#Import 4 quarters of  Cyclistic data
+
+q2_2019 <- read_csv("C:/Users/USER/Documents/Data Analytics/Cyclistic Data/Data/Divvy_Trips_2019_Q2.csv")
+q3_2019 <- read_csv("C:/Users/USER/Documents/Data Analytics/Cyclistic Data/Data/Divvy_Trips_2019_Q3.csv")
+q4_2019 <- read_csv("C:/Users/USER/Documents/Data Analytics/Cyclistic Data/Data/Divvy_Trips_2019_Q4.csv")
+q1_2020 <- read_csv("C:/Users/USER/Documents/Data Analytics/Cyclistic Data/Data/Divvy_Trips_2020_Q1.csv")
+
+
+# Rename columns to make them consistent with q1_2020
+
+q3_2019 = rename(q3_2019,
+                 ride_id=trip_id,
+                 rideable_type = bikeid,
+                 started_at=start_time,
+                 ended_at=end_time,
+                 start_station_id=from_station_id,
+                 start_station_name=from_station_name,
+                 end_station_name=to_station_name,
+                 end_station_id=to_station_id,
+                 member_casual=usertype)
+
+q4_2019 <- rename(q4_2019
+                  ,ride_id = trip_id
+                  ,rideable_type = bikeid 
+                  ,started_at = start_time  
+                  ,ended_at = end_time  
+                  ,start_station_name = from_station_name 
+                  ,start_station_id = from_station_id 
+                  ,end_station_name = to_station_name 
+                  ,end_station_id = to_station_id 
+                  ,member_casual = usertype)
+
+q2_2019 <- rename(q2_2019
+                 ,ride_id = "01 - Rental Details Rental ID"
+                 ,rideable_type = "01 - Rental Details Bike ID" 
+                 ,started_at = "01 - Rental Details Local Start Time"  
+                 ,ended_at = "01 - Rental Details Local End Time"  
+                 ,start_station_name = "03 - Rental Start Station Name" 
+                 ,start_station_id = "03 - Rental Start Station ID"
+                 ,end_station_name = "02 - Rental End Station Name" 
+                 ,end_station_id = "02 - Rental End Station ID"
+                 ,member_casual = "User Type")
+
+# Convert ride_id and rideable_type to character type
+
+q4_2019 <-  mutate(q4_2019, ride_id = as.character(ride_id)
+                   ,rideable_type = as.character(rideable_type)) 
+q3_2019 <-  mutate(q3_2019, ride_id = as.character(ride_id)
+                   ,rideable_type = as.character(rideable_type)) 
+q2_2019 <-  mutate(q2_2019, ride_id = as.character(ride_id)
+                   ,rideable_type = as.character(rideable_type)) 
+
+# Merge all 4 data frames
+
+all_trips <- bind_rows(q2_2019, q3_2019, q4_2019, q1_2020)
+
+# Remove unnecessary columns
+
+all_trips = select(all_trips,-c(start_lat, start_lng, end_lat, end_lng, birthyear, gender, "01 - Rental Details Duration In Seconds Uncapped", "05 - Member Details Member Birthday Year", "Member Gender", "tripduration"))
+
+# Standardise member_casual column data
+
+all_trips$member_casual[all_trips$member_casual=="Customer"] = "casual"
+all_trips$member_casual[all_trips$member_casual=="Subscriber"] = "member"
+
+#Add extra columns for date, year, month, day, day of week and ride start time
+
+all_trips$date = as.Date(all_trips$started_at)
+all_trips$month = format(as.Date(all_trips$date), "%m")
+all_trips$day = format(as.Date(all_trips$date), "%d")
+all_trips$year = format(as.Date(all_trips$date), "%Y")
+all_trips$day_of_week = format(as.Date(all_trips$date), "%A")
+all_trips$ride_start_time = as.numeric(all_trips$started_at - trunc(all_trips$started_at, "days"))
+
+# Add ride length column
+
+all_trips$ride_length = all_trips$ended_at - all_trips$started_at
+
+
+# Change data type for ride start time to POSIXct and round off time to minutes
+
+all_trips$ride_start_time = as.POSIXct(floor(as.double(all_trips$ride_start_time) / 60) * 60, origin = '1970-01-01', tz = "GMT")
+
+
+# Remove rows with negative ride length and with start station HQ QR
+
+all_trips_v2 = all_trips[!(all_trips$start_station_name == "HQ QR" | all_trips$ride_length < 0),]
+
+# Create subsets for weekend and weekday data for analysis
+
+weekend = c("Sunday", "Saturday")
+weekday = c("Monday", "Tuesday", "Wednesday", "Thursday", "Friday")
+
+weekend_data = all_trips_v2[all_trips_v2$day_of_week %in% weekend,]
+weekday_data = all_trips_v2[all_trips_v2$day_of_week %in% weekday,]
+
+# Arrange the rows for the days of the week in order
+
+all_trips_v2$day_of_week <- ordered(all_trips_v2$day_of_week, levels=c("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"))
+
+
+
+
+
+# Descriptive Analysis
+
+
+options(scipen=10000)
+
+
+# Number of Rides Per Day for each User Type
+all_trips_v2 %>% 
+  group_by(member_casual, day_of_week) %>%  
+  summarise(number_of_rides = n(), average_duration = mean(ride_length)) %>%
+  arrange(member_casual, day_of_week) %>%
+
+  ggplot(aes(x = day_of_week, y = number_of_rides, fill = member_casual)) + 
+  geom_col(position = "dodge",width=0.6) + 
+  labs(title="Number of Rides Per Day for each User Type",x="Day of Week", y="Number of Rides") +
+  scale_x_discrete(labels=c("Sun","Mon","Tue","Wed","Thu","Fri","Sat")) +
+  scale_y_continuous(expand = c(0, 0), limits = c(0, 600000)) +
+  guides(fill=guide_legend(title="User Type")) +
+  theme(title = element_text(face = "bold", size=12),
+  plot.title = element_text(vjust=5,hjust = 0.5),
+  plot.margin = unit(c(1,1,1,1),"cm"),
+  aspect.ratio = 0.8,
+  legend.title = element_text(size = 8), 
+  legend.text = element_text(size = 8),
+  axis.title.x = element_text(vjust=-3, size=11),
+  axis.title.y = element_text(vjust=4, size=11), 
+  axis.text.x = element_text(face="bold", size=8),
+  axis.text.y = element_text(face="bold", size=8),
+  text=element_text(size=14),
+  axis.line = element_line(),
+  panel.grid.major.y = element_line(color="grey", size=0.25),
+  panel.background = element_blank(),
+  panel.border = element_blank())
+
+
+
+# Average Duration of Rides Per Day for each User Type
+all_trips_v2 %>%  
+  group_by(member_casual, day_of_week) %>% 
+  summarise(number_of_rides = n(), average_duration = mean(ride_length)) %>% 
+  arrange(member_casual, day_of_week)  %>% 
+
+  ggplot(aes(x = day_of_week, y = average_duration, fill = member_casual)) + geom_col(position = "dodge", width=0.6) +
+  labs(title="Average Duration of Rides Per Day for each User Type",x="Day of Week", y="Average Duration (Seconds)") +
+  scale_x_discrete(labels=c("Sun","Mon","Tue","Wed","Thu","Fri","Sat")) +
+  scale_y_continuous(expand = c(0, 0), limits = c(0, 4000)) +
+  guides(fill=guide_legend(title="User Type")) +
+  theme(title = element_text(face = "bold", size=12),
+  plot.title = element_text(vjust=5,hjust = 0.5),
+  plot.margin = unit(c(1,1,1,1),"cm"),
+  aspect.ratio = 0.8,
+  legend.title = element_text(size = 8), 
+  legend.text = element_text(size = 8),
+  axis.title.x = element_text(vjust=-3, size=11),
+  axis.title.y = element_text(vjust=4, size=11), 
+  axis.text.x = element_text(face="bold", size=8),
+  axis.text.y = element_text(face="bold", size=8),
+  text=element_text(size=14),
+  axis.line = element_line(),
+  panel.grid.major.y = element_line(color="grey", size=0.25),
+  panel.background = element_blank(),
+  panel.border = element_blank())
+
+
+
+# Number of Rides Per Month for each User Type
+all_trips_v2 %>%  
+  group_by(member_casual, month) %>% 
+  summarise(number_of_rides = n(), average_duration = mean(ride_length)) %>% 
+  arrange(member_casual, month)  %>%
+
+  ggplot(aes(x = month, y = number_of_rides, fill = member_casual)) + geom_col(position = "dodge", width=0.6) +
+  labs(title="Number of Rides Per Month for each User Type",x="Month", y="Number of Rides") +
+  scale_x_discrete(labels=c("Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec")) +
+  scale_y_continuous(expand = c(0, 0), limits = c(0, 450000)) +
+  guides(fill=guide_legend(title="User Type")) +
+  theme(title = element_text(face = "bold", size=12),
+  plot.title = element_text(vjust=5,hjust = 0.5),
+  plot.margin = unit(c(1,1,1,1),"cm"),
+  aspect.ratio = 0.8,
+  legend.title = element_text(size = 8), 
+  legend.text = element_text(size = 8),
+  axis.title.x = element_text(vjust=-3, size=11),
+  axis.title.y = element_text(vjust=4, size=11), 
+  axis.text.x = element_text(face="bold", size=8),
+  axis.text.y = element_text(face="bold", size=8),
+  text=element_text(size=14),
+  axis.line = element_line(),
+  panel.grid.major.y = element_line(color="grey", size=0.25),
+  panel.grid.minor.y = element_line(color="grey", size=0.25),
+  panel.background = element_blank(),
+  panel.border = element_blank())
+
+
+
+# Average Duration of Rides Per Month for each User Type
+all_trips_v2 %>%  
+  group_by(member_casual, month) %>% 
+  summarise(number_of_rides = n(), average_duration = mean(ride_length)) %>% 
+  arrange(member_casual, month)  %>%
+
+  ggplot(aes(x = month, y = average_duration, fill = member_casual)) + geom_col(position = "dodge", width=0.6) +
+  labs(title="Average Duration of Rides Per Month for each User Type",x="Month", y="Average Duration (Seconds)") +
+  scale_x_discrete(labels=c("Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec")) +
+  scale_y_continuous(expand = c(0, 0), limits = c(0, 10000)) +
+  guides(fill=guide_legend(title="User Type")) +
+  theme(title = element_text(face = "bold", size=12),
+  plot.title = element_text(vjust=5,hjust = 0.5),
+  plot.margin = unit(c(1,1,1,1),"cm"),
+  aspect.ratio = 0.8,
+  legend.title = element_text(size = 8), 
+  legend.text = element_text(size = 8),
+  axis.title.x = element_text(vjust=-3, size=11),
+  axis.title.y = element_text(vjust=4, size=11), 
+  axis.text.x = element_text(face="bold", size=8),
+  axis.text.y = element_text(face="bold", size=8),
+  text=element_text(size=14),
+  axis.line = element_line(),
+  panel.grid.major.y = element_line(color="grey", size=0.25),
+  panel.grid.minor.y = element_line(color="grey", size=0.25),
+  panel.background = element_blank(),
+  panel.border = element_blank())
+
+
+
+
+# Number of Rides Started at various Times on Weekdays
+weekday_data %>%  
+  group_by(member_casual, ride_start_time) %>% 
+  summarise(number_of_rides = n()) %>% 
+  arrange(member_casual, ride_start_time)  %>%
+
+  ggplot(aes(x = ride_start_time, y = number_of_rides, color = member_casual)) + geom_point(size=0.85) +
+  labs(title="Ride Start Times on Weekdays",x="Time of Day", y="Number of Rides Started") +
+  scale_x_datetime(date_breaks = "2 hours", date_labels = "%H:%M", expand = c(0, 0)) +
+  scale_y_continuous(expand = c(0, 0), limits = c(0, 8000)) +
+  guides(color=guide_legend(title="User Type", override.aes = list(size = 7,shape = 15))) +
+  theme(title = element_text(face = "bold", size=12),
+  aspect.ratio = 0.9,
+  plot.title = element_text(vjust=5,hjust = 0.5),
+  plot.margin = unit(c(1,1,1,1),"cm"),
+  legend.title = element_text(size = 8), 
+  legend.text = element_text(size = 8),
+  axis.title.x = element_text(vjust=-3, size=11),
+  axis.title.y = element_text(vjust=4, size=11), 
+  axis.text.x = element_text(face="bold", size=8),
+  axis.text.y = element_text(face="bold", size=8),
+  text=element_text(size=14),
+  axis.line = element_line(),
+  panel.grid.major.y = element_line(color="grey", size=0.25),
+  panel.grid.major.x = element_line(color="grey", size=0.25),
+  panel.background = element_blank())
+
+
+
+
+# Number of Rides Started at various Times on Weekends
+weekend_data %>%  
+  group_by(member_casual, ride_start_time) %>% 
+  summarise(number_of_rides = n()) %>% 
+  arrange(member_casual, ride_start_time)  %>%
+
+  ggplot(aes(x = ride_start_time, y = number_of_rides, color = member_casual)) + geom_point(size=0.85) +
+  labs(title="Ride Start Times on Weekends",x="Time of Day", y="Number of Rides Started") +
+  scale_x_datetime(date_breaks = "2 hours", date_labels = "%H:%M", expand = c(0, 0)) +
+  scale_y_continuous(expand = c(0, 0), limits = c(0, 1000)) +
+  guides(color=guide_legend(title="User Type", override.aes = list(size = 7,shape = 15))) +
+  theme(title = element_text(face = "bold", size=12),
+  aspect.ratio = 0.9,
+  plot.title = element_text(vjust=5,hjust = 0.5),
+  plot.margin = unit(c(1,1,1,1),"cm"),
+  legend.title = element_text(size = 8), 
+  legend.text = element_text(size = 8),
+  axis.title.x = element_text(vjust=-3, size=11),
+  axis.title.y = element_text(vjust=4, size=11), 
+  axis.text.x = element_text(face="bold", size=8),
+  axis.text.y = element_text(face="bold", size=8),
+  text=element_text(size=14),
+  axis.line = element_line(),
+  panel.grid.major.y = element_line(color="grey", size=0.25),
+  panel.grid.major.x = element_line(color="grey", size=0.25),
+  panel.background = element_blank())
+
+
+
