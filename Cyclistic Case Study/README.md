@@ -1,6 +1,6 @@
 <img src="images/Average%20Duration%20of%20Rides%20Per%20Day%20for%20each%20User%20Type.png" width="500" height="500">
 
-# Cyclistic Bike-Share Analysis
+### Cyclistic Bike-Share Analysis
 
 This is a case study taken from Coursera which I had worked on while undertaking the Google Data Analytics Professional Certificate. All of the original datasets were provided by Coursera and are about a fictional company named Cyclistic.
 
@@ -8,7 +8,7 @@ This is a case study taken from Coursera which I had worked on while undertaking
 
 background about cyclistic
 
-# Requirements of case study
+# Approach
 
 details
 
@@ -16,7 +16,7 @@ details
 
 details
 
-# Descriptive Analysis
+# Data Visualisation
 
 details
 
