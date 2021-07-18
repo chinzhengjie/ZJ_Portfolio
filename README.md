@@ -5,7 +5,7 @@ Portfolio
 * Case study taken from Coursera
 * Details
 
-![](https://github.com/chinzhengjie/ZJ_Portfolio/blob/main/images/Average%20Duration%20of%20Rides%20Per%20Day%20for%20each%20User%20Type.png)
+![](/images/Average%20Duration%20of%20Rides%20Per%20Day%20for%20each%20User%20Type.png){:height="50%" width="50%"}
 
 
 
