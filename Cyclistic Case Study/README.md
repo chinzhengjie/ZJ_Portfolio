@@ -90,11 +90,13 @@ As for the average duration of rides, it remains low for members throughout all 
 
 Upon further investigation, I found that between January and February, there were hundreds of rides which had ride lengths of more than 10,000 seconds. 31 of these rides even had ride lengths of more than 1,000,000 seconds. Given that the average duration of rides for the rest of the year is around 3,500 seconds and this only occurs in January and February, this is highly unusual. Therefore, Cyclistic should investigate the status of their bicycles during this period in order to gain a clearer picture of the situation.
 
+<br/>
+<br/>
 <p align="center"> <b>
 10 Longest Rides (January and February - Casual)
 </b> </p>
 
-<img src="images/Jan%20Feb%20Casual.PNG" width="500" height="500">
+<img src="images/Jan%20Feb%20Casual.PNG">
 
 
 <br/>
