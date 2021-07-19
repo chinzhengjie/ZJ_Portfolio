@@ -5,10 +5,10 @@ library(lubridate)
 
 #Import 4 quarters of  Cyclistic data
 
-q2_2019 <- read_csv("C:/Users/USER/Documents/Data Analytics/Cyclistic Data/Data/Divvy_Trips_2019_Q2.csv")
-q3_2019 <- read_csv("C:/Users/USER/Documents/Data Analytics/Cyclistic Data/Data/Divvy_Trips_2019_Q3.csv")
-q4_2019 <- read_csv("C:/Users/USER/Documents/Data Analytics/Cyclistic Data/Data/Divvy_Trips_2019_Q4.csv")
-q1_2020 <- read_csv("C:/Users/USER/Documents/Data Analytics/Cyclistic Data/Data/Divvy_Trips_2020_Q1.csv")
+q2_2019 <- read_csv("C:/Users/USER/Documents/Data Analytics/Cyclistic Case Study/Data/Divvy_Trips_2019_Q2.csv")
+q3_2019 <- read_csv("C:/Users/USER/Documents/Data Analytics/Cyclistic Case Study/Data/Divvy_Trips_2019_Q3.csv")
+q4_2019 <- read_csv("C:/Users/USER/Documents/Data Analytics/Cyclistic Case Study/Data/Divvy_Trips_2019_Q4.csv")
+q1_2020 <- read_csv("C:/Users/USER/Documents/Data Analytics/Cyclistic Case Study/Data/Divvy_Trips_2020_Q1.csv")
 
 
 # Rename columns to make them consistent with q1_2020
@@ -59,16 +59,13 @@ q2_2019 <-  mutate(q2_2019, ride_id = as.character(ride_id)
 
 all_trips <- bind_rows(q2_2019, q3_2019, q4_2019, q1_2020)
 
+
 # Remove unnecessary columns
 
 all_trips = select(all_trips,-c(start_lat, start_lng, end_lat, end_lng, birthyear, gender, "01 - Rental Details Duration In Seconds Uncapped", "05 - Member Details Member Birthday Year", "Member Gender", "tripduration"))
 
-# Standardise member_casual column data
 
-all_trips$member_casual[all_trips$member_casual=="Customer"] = "casual"
-all_trips$member_casual[all_trips$member_casual=="Subscriber"] = "member"
-
-#Add extra columns for date, year, month, day, day of week and ride start time
+#Add extra columns for date, year, month, day, day of week, ride start time and ride length
 
 all_trips$date = as.Date(all_trips$started_at)
 all_trips$month = format(as.Date(all_trips$date), "%m")
@@ -76,10 +73,12 @@ all_trips$day = format(as.Date(all_trips$date), "%d")
 all_trips$year = format(as.Date(all_trips$date), "%Y")
 all_trips$day_of_week = format(as.Date(all_trips$date), "%A")
 all_trips$ride_start_time = as.numeric(all_trips$started_at - trunc(all_trips$started_at, "days"))
-
-# Add ride length column
-
 all_trips$ride_length = all_trips$ended_at - all_trips$started_at
+
+# Standardise member_casual column data
+
+all_trips$member_casual[all_trips$member_casual=="Customer"] = "casual"
+all_trips$member_casual[all_trips$member_casual=="Subscriber"] = "member"
 
 
 # Change data type for ride start time to POSIXct and round off time to minutes
@@ -91,17 +90,11 @@ all_trips$ride_start_time = as.POSIXct(floor(as.double(all_trips$ride_start_time
 
 all_trips_v2 = all_trips[!(all_trips$start_station_name == "HQ QR" | all_trips$ride_length < 0),]
 
-# Create subsets for weekend and weekday data for analysis
-
-weekend = c("Sunday", "Saturday")
-weekday = c("Monday", "Tuesday", "Wednesday", "Thursday", "Friday")
-
-weekend_data = all_trips_v2[all_trips_v2$day_of_week %in% weekend,]
-weekday_data = all_trips_v2[all_trips_v2$day_of_week %in% weekday,]
 
 # Arrange the rows for the days of the week in order
 
 all_trips_v2$day_of_week <- ordered(all_trips_v2$day_of_week, levels=c("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"))
+
 
 
 
@@ -234,7 +227,8 @@ all_trips_v2 %>%
 
 
 # Number of Rides Started at various Times on Weekdays
-weekday_data %>%  
+weekday = c("Monday", "Tuesday", "Wednesday", "Thursday", "Friday")
+all_trips_v2[all_trips_v2$day_of_week %in% weekday,] %>%  
   group_by(member_casual, ride_start_time) %>% 
   summarise(number_of_rides = n()) %>% 
   arrange(member_casual, ride_start_time)  %>%
@@ -264,7 +258,8 @@ weekday_data %>%
 
 
 # Number of Rides Started at various Times on Weekends
-weekend_data %>%  
+weekend = c("Sunday", "Saturday")
+all_trips_v2[all_trips_v2$day_of_week %in% weekend,] %>%  
   group_by(member_casual, ride_start_time) %>% 
   summarise(number_of_rides = n()) %>% 
   arrange(member_casual, ride_start_time)  %>%
@@ -289,6 +284,4 @@ weekend_data %>%
   panel.grid.major.y = element_line(color="grey", size=0.25),
   panel.grid.major.x = element_line(color="grey", size=0.25),
   panel.background = element_blank())
-
-
 
