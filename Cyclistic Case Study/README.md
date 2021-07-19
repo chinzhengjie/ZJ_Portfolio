@@ -108,5 +108,9 @@ Upon further investigation, I found that between January and February, there wer
 
 ## Recommendations and Conclusion
 
-details
+Overall, there is a huge difference in usage between Cyclistic's members and its casual users. Members tend to use the bikes for short durations but they use them extremely often, especially on weekdays where it is possible that they use the bikes to commute to and from work. As for casual users, they tend to use the bikes less frequently but for much longer durations than members. Moreover, significantly more casual members utilise the bikes on weekends than on weekdays, most likely for leisure purposes. We can also see that the overall usage of the bikes increases in the summertime of Chicago between June and September for both user types, whereas the average duration of rides is the same through the year except for casual users in January and February.
+
+Regarding the unusual January and February data, Cyclistic should prioritise investigating the situation. If this is not a technical glitch then it is possible that these bikes will not be utilised for long periods of time (ranging from a few days to even a few months) starting from January and Februrary. With a fleet of just under 6,000 bikes, it would be a huge waste of resources if they had a few dozen bikes sitting idle somewhere in Chicago for extended periods of time. This could adversely affect their overall revenue and ultimately, their profits.
+
+In conclusion, I recommend that Cyclistic focus their marketing efforts on working adults who require a reliable mode of transportation for their daily commute to work. It seems that this is a huge contributor to the high number of member rides on weekdays, which makes up a large portion of the total number of rides. At the same time, marketing efforts should be amplified during the summertime, where more people are likely to utilise Cyclistic's services.
 
