@@ -79,6 +79,12 @@ all_trips_v2 = all_trips[!(all_trips$start_station_name == "HQ QR" | all_trips$r
 # Arrange the rows for the days of the week in order
 all_trips_v2$day_of_week <- ordered(all_trips_v2$day_of_week, levels=c("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"))
 
+#Investigating the higher average duration of January and February rides for casual users
+jan_feb_casual = all_trips_v2[all_trips_v2$month %in% c("01","02") & all_trips_v2$member_casual %in% "casual",] %>%
+  arrange(-ride_length) %>%
+  select(c("started_at","ended_at","rideable_type","ride_length"))
+
+View(jan_feb_casual)
 
 
 # Descriptive Analysis
@@ -245,10 +251,3 @@ all_trips_v2[all_trips_v2$day_of_week %in% weekend,] %>%
   panel.grid.major.y = element_line(color="grey", size=0.25),
   panel.grid.major.x = element_line(color="grey", size=0.25),
   panel.background = element_blank())
-
-#Investigating the higher average duration of January and February rides for casual users
-jan_feb_casual = all_trips_v2[all_trips_v2$month %in% c("01","02") & all_trips_v2$member_casual %in% "casual",] %>%
-  arrange(-ride_length) %>%
-  select(c("started_at","ended_at","rideable_type","ride_length"))
-
-View(jan_feb_casual)
