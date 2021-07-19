@@ -106,7 +106,7 @@ Upon further investigation, I found that between January and February, there wer
 <br/>
 <br/>
 
-## Recommendations and Conclusion
+## Summary and Conclusion
 
 Overall, there is a huge difference in usage between Cyclistic's members and its casual users. Members tend to use the bikes for short durations but they use them extremely often, especially on weekdays where it is possible that they use the bikes to commute to and from work. As for casual users, they tend to use the bikes less frequently but for much longer durations than members. Moreover, significantly more casual members utilise the bikes on weekends than on weekdays, most likely for leisure purposes. We can also see that the overall usage of the bikes increases in the summertime of Chicago between June and September for both user types, whereas the average duration of rides is the same through the year except for casual users in January and February.
 
