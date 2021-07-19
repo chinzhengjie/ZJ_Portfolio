@@ -21,9 +21,9 @@ As the data was extremely large, I found it easiet to work on the data with R De
 
 After importing the 4 quarters of data provided (Q2, Q3, Q4 of 2019 and Q1 of 2020), the most important step would be to merge these into 1 large dataset. Thus, the first step was to ensure that each quarter's dataset had consistent headers and consistent data types. I chose to use the most recent quarter, Q1 of 2020, as the reference point for the columns. Furthermore, there were certain columns, such as Longitude, Latitude, Gender, etc., which had data which was no longer tracked by Cyclistic and were not available in the most recent quarter. Thus, after merging the 4 datasets, I removed all the unnecessary columns from the main dataset.
 
- \
- \
- 
+\ 
+\ 
+\  
  
 ### Main Dataset
 <img src="images/Merged%20Dataset.PNG">
