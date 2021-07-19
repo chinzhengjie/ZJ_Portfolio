@@ -96,8 +96,9 @@ Upon further investigation, I found that between January and February, there wer
 10 Longest Rides (January and February - Casual)
 </b> </p>
 
+<p align="center">
 <img src="images/Jan%20Feb%20Casual.PNG">
-
+</p>
 
 <br/>
 <br/>
