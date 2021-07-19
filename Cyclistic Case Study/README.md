@@ -31,6 +31,11 @@ Thereafter, I added a few extra useful columns for analysis later.
 Next, I found some issues with the data in certain columns. The "member_casual" column had varying names for members and casual users as a result of the dataset originating from different quarters and thus, I standarised this column to only contain "member" and "casual". I also removed negative values from the "ride_length" column, as well as rows which had a start station of "HQ QR" in the "start_station_name" column as these entries were for bikes which were taken out of docks and checked for quality by Cyclistic. 
 
 
+
+
+
+
+
 ### Cleaned Extra Columns
 <img src="images/Extra%20Columns.PNG">
 
