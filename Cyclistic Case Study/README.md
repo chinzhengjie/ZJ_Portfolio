@@ -16,7 +16,7 @@ The main question of the case study is this: How do annual members and casual ri
 
 I opted to analyse the data and see what insights I could find.???
 
-As the data was extremely large, I found it easiet to work on the data with R Desktop.
+As the data was extremely large, I found it easier to work on the data with R Desktop.
 
 <br/>
 
@@ -62,7 +62,7 @@ Daily Data
 
 <img src="images/Number%20of%20Rides%20Per%20Day%20for%20each%20User%20Type.png" width="500" height="500"> <img src="images/Average%20Duration%20of%20Rides%20Per%20Day%20for%20each%20User%20Type.png" width="500" height="500">
 
-I found that the members were using the bikes a lot more on the 
+I found that members were generally using the bikes significantly more on weekdays than on weekends as shown by the greater number of rides in the chart. However, the reverse is true for casual users as the number of rides was greater on the weekends. At the same time, the average duration of each casual user's ride (approximately 3,500 seconds or 58 minutes) was significantly longer than each member's ride (approximately 980 seconds or 16 minutes) across all 7 days.
 
 <br/>
 <br/>
@@ -72,7 +72,9 @@ Weekend and Weekday Data
 
 <img src="images/Ride%20Start%20Times%20on%20Weekdays.png" width="500" height="500"> <img src="images/Ride%20Start%20Times%20on%20Weekends.png" width="500" height="500">
 
-details
+I decided to create the above 2 graphs by filtering the data by weekends and weekdays separately and comparing the number of rides started at various times of the day. From this, I managed to garner some interesting findings as the results from weekdays and weekends varied greatly. The number of rides started on weekdays by members was significantly higher at 2 timings in the day, namely around 8am and 5pm. As for casual users, the number of rides started slowly increased throughout the day, although the number of rides was significantly fewer than that of the members. This could suggest that a large number of Cyclistic's members are actually using their services to cycle to and from work.
+
+As for the weekends, the number of rides started for both members and casual users were actually very similar and peaked between 1pm to 3pm.
 
 <br/>
 <br/>
@@ -82,7 +84,11 @@ Monthly Data
 
 <img src="images/Number%20of%20Rides%20Per%20Month%20for%20each%20User%20Type.png" width="500" height="500"> <img src="images/Average%20Duration%20of%20Rides%20Per%20Month%20for%20each%20User%20Type.png" width="500" height="500">
 
-details
+Finally, I analysed the dataset by month and found that number of rides was the greatest around the middle of the year, from June to September. This makes sense as this period is generally when Chicago experiences its summertime. Conversely, the number of rides falls off from December to March, which is aligned with Chicago's wintertime. 
+
+As for the average duration of rides, it remains low for members throughout all months of the year. Surprisingly though, the average duration of rides for casual users is significantly higher in January and February. Although this is coupled with a very small sample size of rides during that period, it is still worth looking into.
+
+Upon further investigation, I found that between January and February, there were hundreds of rides which had ride lengths of more than 10,000 seconds. 31 of these rides even had ride lengths of more than 1,000,000 seconds. Given that the average duration of rides for the rest of the year is around 3,500 seconds and this only occurs in January and February, this is highly unusual. Therefore, Cyclistic should investigate the status of their bicycles during this period in order to gain a clearer picture of the situation.
 
 <br/>
 <br/>
