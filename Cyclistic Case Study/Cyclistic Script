@@ -87,6 +87,8 @@ jan_feb_casual = all_trips_v2[all_trips_v2$month %in% c("01","02") & all_trips_v
 View(jan_feb_casual)
 
 
+
+
 # Descriptive Analysis
 
 options(scipen=10000)
