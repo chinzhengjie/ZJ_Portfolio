@@ -56,10 +56,6 @@ Cleaned Extra Columns
 
 <br/>
 
-details
-
-<br/>
-
 <p align="center"> <b>
 Daily Data
 </b> </p>
@@ -89,6 +85,11 @@ Weekend and Weekday Data
 
 <img src="images/Ride%20Start%20Times%20on%20Weekdays.png" width="500" height="500"> <img src="images/Ride%20Start%20Times%20on%20Weekends.png" width="500" height="500">
 
+<br/>
+
+details
+
+<br/>
 
 
 ## Insights and Recommendations
