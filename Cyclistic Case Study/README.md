@@ -1,3 +1,4 @@
+<ReactMarkdown parserOptions={{ commonmark: true }} source={source} />
 # Cyclistic Bike-Share Analysis
 
 This is a case study taken from Coursera which I had worked on while undertaking the Google Data Analytics Professional Certificate. All of the original datasets were provided by Coursera and are about a **fictional** company named Cyclistic. The analysis was done in R Programming.
@@ -5,6 +6,7 @@ This is a case study taken from Coursera which I had worked on while undertaking
   \
   \
   \
+
 
 ## Background
 
