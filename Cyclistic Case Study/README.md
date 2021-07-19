@@ -1,6 +1,6 @@
 # Cyclistic Bike-Share Analysis
 
-This is a case study taken from Coursera which I had worked on while undertaking the Google Data Analytics Professional Certificate. All of the original datasets were provided by Coursera and are about a **fictional** company named Cyclistic. The analysis was done in R Programming.
+This is a case study taken from Coursera which I had worked on while undertaking the Google Data Analytics Professional Certificate. All of the original datasets were provided by Coursera and are about a **fictional** company named Cyclistic. As the dataset was extremely large, I found it easier to work on the analysis through R Desktop.
 
 <br/>
 
@@ -12,11 +12,14 @@ Cyclistic is a bike-share company based in Chicago. They launched a successful b
 
 ## Approach
 
-The main question of the case study is this: How do annual members and casual riders use Cyclistic bikes differently?
+The 2 main questions of the case study are: 
 
-I opted to analyse the data and see what insights I could find.???
+1. How do annual members and casual riders use Cyclistic bikes differently?
+2. How can Cyclistic design marketing strategies aimed at converting casual riders into annual members?
 
-As the data was extremely large, I found it easier to work on the data with R Desktop.
+The purpose of this project is to identify any potentially useful trends found in the data for each user type (member and casual). I mainly focused on segregating the data by the user type, followed by the days of the week and months of the year in order to find any difference between the usage of members and casual users throughout different time periods. Additionally, I will also point out any unsual characteristics of the data that I come across.
+
+I haved detailed my process and findings below.
 
 <br/>
 
@@ -103,7 +106,7 @@ Upon further investigation, I found that between January and February, there wer
 <br/>
 <br/>
 
-## Insights and Recommendations
+## Recommendations and Conclusion
 
 details
 
