@@ -62,10 +62,9 @@ Daily Data
 
 <img src="images/Number%20of%20Rides%20Per%20Day%20for%20each%20User%20Type.png" width="500" height="500"> <img src="images/Average%20Duration%20of%20Rides%20Per%20Day%20for%20each%20User%20Type.png" width="500" height="500">
 
-<br/>
-
 details
 
+<br/>
 <br/>
 <p align="center"> <b>
 Monthly Data
@@ -73,24 +72,20 @@ Monthly Data
 
 <img src="images/Number%20of%20Rides%20Per%20Month%20for%20each%20User%20Type.png" width="500" height="500"> <img src="images/Average%20Duration%20of%20Rides%20Per%20Month%20for%20each%20User%20Type.png" width="500" height="500">
 
-<br/>
-
 details
 
 <br/>
-
+<br/>
 <p align="center"> <b>
 Weekend and Weekday Data
 </b> </p>
 
 <img src="images/Ride%20Start%20Times%20on%20Weekdays.png" width="500" height="500"> <img src="images/Ride%20Start%20Times%20on%20Weekends.png" width="500" height="500">
 
-<br/>
-
 details
 
 <br/>
-
+<br/>
 
 ## Insights and Recommendations
 
