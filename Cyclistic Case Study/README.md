@@ -91,7 +91,7 @@ Finally, I analysed the dataset by month and found that number of rides was the 
 
 As for the average duration of rides, it remains low for members throughout all months of the year. Surprisingly though, the average duration of rides for casual users is significantly higher in January and February. Although this is coupled with a very small sample size of rides during that period, it is still worth looking into.
 
-Upon further investigation, I found that between January and February, there were hundreds of rides which had ride lengths of more than 10,000 seconds. 31 of these rides even had ride lengths of more than 1,000,000 seconds. Given that the average duration of rides for the rest of the year is around 3,500 seconds and this only occurs in January and February, this is highly unusual. Therefore, Cyclistic should investigate the status of their bicycles during this period in order to gain a clearer picture of the situation.
+Upon further investigation, I found that between January and February, there were hundreds of rides which had ride lengths of more than 86,400 seconds (24 Hours). 31 of these rides even had ride lengths of more than 1,000,000 seconds. Given that the average duration of rides for the rest of the year is around 3,500 seconds and this only occurs in January and February, this is highly unusual. Therefore, Cyclistic should investigate the status of their bicycles during this period as these unsually long ride lengths far exceed the duration allowed by a single full-day pass for casual users.
 
 <br/>
 <br/>
