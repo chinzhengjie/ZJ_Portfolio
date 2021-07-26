@@ -38,7 +38,7 @@ create a random sudoku puzzle
 - if a board is generated successfully, it will print "successful"
 
 in order to test the function, i ran the function 2000 times to ensure that it would not produce an unsolvable board
-all 2000 times were successful -> reasonable to believe it will produce a solvable board
+all 2000 times were successful -> reasonable to believe it will always produce a solvable board
 
 
 
