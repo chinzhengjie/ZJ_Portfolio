@@ -27,7 +27,8 @@ pitfalls of v2
 
 
 create a random sudoku puzzle 
-- by utilising the solver, we can create a random sudoku puzzle of varying levels of difficulty
+- by utilising the solver, we can create a random sudoku puzzle of varying levels of difficulty (levels 1-4, with 1 being the easiest and the default covers all levels)
+- (difficulty is based on the number of missing squares)
 - the function creates a blank board and fills out 15 numbers randomly 
 - (15 is a good number because if too many numbers are filled out, an unsolvable puzzle will be created and the function will fail.)
 - (if too few numbers are filled out, the generate puzzles will turn out too similar to each other)
