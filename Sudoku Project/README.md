@@ -1,5 +1,7 @@
 # Sudoku Project
 
+board must be an array and must be 9x9
+
 1st attempt: create sudoku solver v1
 - premise is to go through each square in the puzzle and find possible numbers to fill it with
 - find the square with only 1 possible number and fill it first
