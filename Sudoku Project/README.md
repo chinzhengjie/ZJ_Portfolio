@@ -21,7 +21,7 @@ The way this function works is it will go through each square one by one and try
 - the input is a python array
 - the input array is the correct shape (9x9)
 
-After working on the function for some time, I was glad that it finally worked. It was able to solve sudoku puzzles.
+After working on the function for some time, I was glad that it finally worked. It was able to solve the easy sudoku puzzle.
 
 <img src="Images/Easy%20Puzzle%20(unsolved).PNG">  <img src="Images/Easy%20Puzzle%20(solved).PNG">
 
@@ -35,7 +35,7 @@ Thus, this brought me to the Sudoku Solver v2.
 
 In more complex puzzles, if one were to reach a point where there were no squares with only 1 possible number, they would be forced to make a guess for some squares in order to progress in the puzzle. I had to create a solver which was able to do something like this as well. Thus, I found that a simple backtracking algorithm based on recursion was an effective way to solve puzzles.
 
-After tweaking some parts in the original function, I managed to create a solver which goes through each square and tries to fill it with a possible number. Once it reaches a square with no possible answer, it will backtrack to the previous square and try other possible numbers. This proved to be very successful as it was able to solve the more complex puzzle. The only downside here is that the function can take a while to solve certain puzzles due to the backtracking.
+After tweaking some parts in the original function, I managed to create a solver which goes through each square and tries to fill it with a possible number. Once it reaches a square with no possible answer, it will backtrack to the previous square and try other possible numbers. This proved to be very successful as it was able to solve the hard puzzle as well. The only downside here is that the function can take slightly longer to solve certain puzzles due to the backtracking.
 
 <img src="Images/Easy%20Puzzle%20(solved).PNG">  <img src="Images/Hard%20Puzzle%20(solved).PNG">
 
@@ -52,7 +52,7 @@ The function works as follows:
 
 <img src="Images/Step%201%20(Board%20Generator).PNG">
 
-2. Fill out 15 numbers randomly.
+2. Fill out 15 designated squares with random numbers.
 
 <img src="Images/Step%202%20(Board%20Generator).PNG">
 
