@@ -85,9 +85,11 @@ I found that 15 was an ideal number of squares to fill out because if there were
 
 In order to test the function to make sure it was able to reliably generate solvable puzzles, I ran the function 2000 times. Fortunately, all 2000 times were successful, which means the function was working properly.
 
-Level 1 Puzzle
+Level 1 Puzzle <br/>
 <img src="Images/Level%201%20Puzzle.PNG">
 
-Level 4 Puzzle
+<br/>
+
+Level 4 Puzzle <br/>
 <img src="Images/Level%204%20Puzzle.PNG">
 
