@@ -1,6 +1,6 @@
 # Sudoku Project
 
-## Introduction
+### Introduction
 
 A sudoku solver is known to be a relatively simple project to work on so I thought I would be apt to make this one of my first projects. The idea of sudoku is quite simple. It is a 9x9 grid of numbers ranging from 1 to 9 and there are only [5 rules](https://masteringsudoku.com/sudoku-rules-beginners/):
 
@@ -10,7 +10,7 @@ A sudoku solver is known to be a relatively simple project to work on so I thoug
 - Each vertical column can only contain each number from 1 to 9 once
 - Each horizontal row can only contain each number from 1 to 9 once
 
-## Sudoku Solver v1
+### Sudoku Solver v1
 - board must be an array and must be 9x9
 - premise is to go through each square in the puzzle and find possible numbers to fill it with
 - find the square with only 1 possible number and fill it first
