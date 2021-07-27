@@ -23,6 +23,8 @@ The way this function works is it will go through each square one by one and try
 
 After working on the function for some time, I was glad that it finally worked. It was able to solve the easy sudoku puzzle.
 
+(I created a function (draw_board) to better visualise the sudoku arrays and all images of the board are produced by this it.)
+
 <img src="Images/Easy%20Puzzle%20(unsolved).PNG">  <img src="Images/Easy%20Puzzle%20(solved).PNG">
 
 However, there was a flaw in this function, which was that it was unable to solve more complex puzzles. Essentially, if a puzzle did not have any square with only 1 possible number or the solver reaches a point where no such square exists, it will be unable to solve it. I tested this by simply removing a few numbers from the initial puzzle.
