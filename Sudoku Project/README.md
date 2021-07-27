@@ -23,11 +23,15 @@ The way this function works is it will go through each square one by one and try
 
 After working on the function for some time, I was glad that it finally worked. It was able to solve sudoku puzzles.
 
-image of success
+<p align="center">
+<img src="Images/Easy%20Puzzle%20(unsolved).PNG"><img src="Images/Easy%20Puzzle%20(solved).PNG">
+</p>
 
 However, there was a flaw in this function, which was that it was unable to solve more complex puzzles. Essentially, if a puzzle did not have any square with only 1 possible number or the solver reaches a point where no such square exists, it will be unable to solve it. I tested this by simply removing a few numbers from the initial puzzle.
 
-image of failed
+<p align="center">
+<img src="Images/Hard%20Puzzle%20(unsovled).PNG"><img src="Images/Hard%20Puzzle%20(failed).PNG">
+</p>
 
 Thus, this brought me to the Sudoku Solver v2.
 
@@ -37,7 +41,9 @@ In more complex puzzles, if one were to reach a point where there were no square
 
 After tweaking some parts in the original function, I managed to create a solver which goes through each square and tries to fill it with a possible number. Once it reaches a square with no possible answer, it will backtrack to the previous square and try other possible numbers. This proved to be very successful as it was able to solve the more complex puzzle. The only downside here is that the function can take a while to solve certain puzzles due to the backtracking.
 
-image of both successes
+<p align="center">
+<img src="Images/Easy%20Puzzle%20(solved).PNG"><img src="Images/Hard%20Puzzle%20(solved).PNG">
+</p>
 
 
 ## Sudoku Board Generator
@@ -50,26 +56,42 @@ The function works as follows:
 
 1. Create an empty 9x9 board of zeroes.
 
-image of empty board
+<p align="center">
+<img src="Images/Step%201%20(Board%20Generator).PNG">
+</p>
 
 2. Fill out 15 numbers randomly.
 
-image of filled board
+<p align="center">
+<img src="Images/Step%202%20(Board%20Generator).PNG">
+</p>
 
 3. Utilise the solver to solve the puzzle.
 
-image of solved board
+<p align="center">
+<img src="Images/Step%203%20(Board%20Generator).PNG">
+</p>
 
 4. If the puzzle is solvable, "successful" is printed and "failed" is printed otherwise.
 
 5. Randomly remove a number of filled squares depending on the difficulty of the puzzle required.
 
-image of generated puzzle
+<p align="center">
+<img src="Images/Step%205%20(Board%20Generator).PNG">
+</p>
+
+6. Output an array.
+
+<p align="center">
+<img src="Images/Final%20Output.PNG">
+</p>
 
 
 I found that 15 was an ideal number of squares to fill out because if there were too many numbers, the randomly generated board will often be unsolvable but at the same time, if there were too few numbers, the generated boards would not have much variety. As for the difficulty of the puzzles, these were based on the number of missing squares in each puzzle. For example, level 1 would have between 40 and 46 missing squares and level 4 would have between 59 and 63.
 
 In order to test the function to make sure it was able to reliably generate solvable puzzles, I ran the function 2000 times. Fortunately, all 2000 times were successful, which means the function was working properly.
 
-image of final product (level 1 and 4)
+<p align="center">
+<img src="Images/Level%201%20Puzzle.PNG"><img src="Images/Level%204%20Puzzle.PNG">
+</p>
 
