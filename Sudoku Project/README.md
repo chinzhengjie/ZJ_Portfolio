@@ -1,8 +1,17 @@
 # Sudoku Project
 
-board must be an array and must be 9x9
+## Introduction
 
-1st attempt: create sudoku solver v1
+A sudoku solver is known to be a relatively simple project to work on so I thought I would be apt to make this one of my first projects. The idea of sudoku is quite simple. It is a 9x9 grid of numbers ranging from 1 to 9 and there are only [5 rules](https://masteringsudoku.com/sudoku-rules-beginners/):
+
+- Every square has to contain a single number
+- Only the numbers from 1 through to 9 can be used
+- Each 3×3 box can only contain each number from 1 to 9 once
+- Each vertical column can only contain each number from 1 to 9 once
+- Each horizontal row can only contain each number from 1 to 9 once
+
+## Sudoku Solver v1
+- board must be an array and must be 9x9
 - premise is to go through each square in the puzzle and find possible numbers to fill it with
 - find the square with only 1 possible number and fill it first
 - loop through the entire puzzle multiple times until it is solved
@@ -13,7 +22,7 @@ pitfalls of v1
 - essentially can't solve complex puzzles
 
 
-2nd attempt: create a sudoku solver v2
+## Sudoku Solver v2
 - incorporates majority of the functions in v1
 - tweak some parts of v1
 - added "empty space" function to find empty spaces on the board
@@ -26,7 +35,7 @@ pitfalls of v2
 - can take a long time to solve certain puzzles due to the backtracking
 
 
-create a random sudoku puzzle 
+## Sudoku Board Generator
 - by utilising the solver, we can create a random sudoku puzzle of varying levels of difficulty (levels 1-4, with 1 being the easiest and the default covers all levels)
 - (difficulty is based on the number of missing squares)
 - the function creates a blank board and fills out 15 numbers randomly 
