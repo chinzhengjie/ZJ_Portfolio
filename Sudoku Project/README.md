@@ -1,5 +1,7 @@
 # Sudoku Project
 
+<br/>
+
 ## Introduction
 
 I always found sudoku to be an intriguing puzzle because it is based on such simple concepts but yet, can become incredibly difficult to solve. Despite this, I felt that a game with such simple rules should be quite easy to automate. After a quick search online, I found that many people have already managed to accomplish this. Nevertheless, I was still very interested in trying to solve this myself. 
@@ -13,6 +15,8 @@ The idea of sudoku is quite simple. It is a 9x9 grid of numbers and there are on
 - Each horizontal row can only contain each number from 1 to 9 once
 
 A common tactic to solve sudoku puzzles is to find a square which only has 1 possible number. From there, the rest of the puzzle will slowly become easier to solve. Thus, I tried to create a solver based on this logic.
+
+<br/>
 
 ## Sudoku Solver v1
 
@@ -33,6 +37,8 @@ However, there was a flaw in this function, which was that it was unable to solv
 
 Thus, this brought me to the Sudoku Solver v2.
 
+<br/>
+
 ## Sudoku Solver v2
 
 In more complex puzzles, if one were to reach a point where there were no squares with only 1 possible number, they would be forced to make a guess for some squares in order to progress in the puzzle. I had to create a solver which was able to do something like this as well. Thus, I found that a simple backtracking algorithm based on recursion was an effective way to solve puzzles.
@@ -41,6 +47,8 @@ After tweaking some parts in the original function, I managed to create a solver
 
 <img src="Images/Easy%20Puzzle%20(solved).PNG">  <img src="Images/Hard%20Puzzle%20(solved).PNG">
 
+
+<br/>
 
 ## Sudoku Board Generator
 
