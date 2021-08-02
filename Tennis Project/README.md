@@ -1,4 +1,4 @@
-# The Grandslams and the GOATs of Tennis
+# The Grandslams and GOATs of Tennis
 
 what is a goat
 intro
