@@ -34,106 +34,163 @@ clean_df <- clean_df %>%
 
 big3_stats2 <- clean_df[clean_df$name == "Roger Federer" | clean_df$name == "Novak Djokovic" | clean_df$name == "Rafael Nadal", ]
 
-# 1. Rank Top 10 Match Wins againt Rank Top 10
-winners <- clean_df[clean_df$rank <= 10 & clean_df$rank >= 1 & clean_df$winner == TRUE,] %>% 
-  select(c("match_id","name"))
-losers <- clean_df[clean_df$rank <= 10 & clean_df$rank >= 1 & clean_df$winner == FALSE,] %>% 
-  select(c("match_id","name"))
-
-top10_rank_winners_sum <- merge(winners, losers[, c("match_id", "name")], by="match_id") %>% 
-  select(-name.y,-match_id) %>% 
-  dplyr::rename(name=name.x) %>% 
-  group_by(name) %>%
-  tally()
-
-
-top10_rank_winners_sum %>% 
-  ggplot(aes(x = reorder(name, n), y = n, fill=name)) + 
-  geom_bar(stat="identity",color="black",width=0.7) +
-  geom_text(aes(label=n), position = position_dodge(),hjust = -0.5, size = 2.75) +
-  labs(title="Wins Against Rank Top 10 Players",subtitle="in Grandslams (2000-2019)") +
-  scale_y_continuous(expand = c(0, 0), limits = c(0, 65)) +
-  scale_fill_manual(values = rep(c("skyblue2","palegreen3","skyblue2","palegreen3","skyblue2","palegreen3","skyblue2"),times=c(21,1,2,1,2,1,5))) +
-  guides(x = "none") +
-  theme(plot.title = element_text(vjust=5,hjust = 0.35,size=15),
-  plot.subtitle = element_text(vjust=6,hjust = 0.4,size=10),
-  plot.margin = unit(c(1,0,1,1),"cm"),
-  axis.line = element_line(),
-  axis.ticks.x=element_blank(),
-  axis.text.x=element_blank(),
-  axis.title.x=element_blank(),
-  axis.title.y=element_blank(),
-  axis.text.y=element_text(color="black"),
-  legend.position = "none",
-  panel.background = element_blank()) +
-  coord_flip()
-
-  #ggsave(filename="Rank Top 10 Match Wins againt Rank Top 10.png",width=12,height=8)
-  
-
-# 2a. Big 3 Win Rate against Top 10 Rank Players
-
-top10_rank_losers_sum <- merge(losers, winners[, c("match_id", "name")], by="match_id") %>% 
-  select(-name.y,-match_id) %>% 
-  dplyr::rename(name=name.x) %>% 
-  group_by(name) %>%
-  tally()
-
-big3_stats1 <- merge(top10_rank_winners_sum, top10_rank_losers_sum, by="name") %>%
-  dplyr::rename(wins=n.x,losses=n.y) %>%
-  mutate(win_per=(wins/(wins+losses))) %>%
-  filter(name=="Roger Federer" | name=="Rafael Nadal" | name=="Novak Djokovic",)
-
-top10_win_rate_p <- big3_stats1 %>%
-  mutate(win_per=round(win_per*100,1)) %>%
-  ggplot(aes(x=name, y = win_per)) +
-  geom_segment(aes(xend=name, yend=0), size = 0.5) +
-  geom_point(size=22, color="black", fill = "deepskyblue", shape = 21, stroke=1) +
-  geom_text(aes(label=sprintf("%.1f", round(win_per, digits = 1))), position = position_stack(vjust = 1.0), size = 5) +
-  labs(title="The Big 3 vs Rank Top 10 Players",subtitle="in Grandslams (2000-2019)", y="Win Percentage") +
-  scale_y_continuous(expand = c(0, 0), limits = c(0, 90)) +
-  guides(y = "none") +
-  theme(plot.title = element_text(vjust=5,hjust = 0.53,size=15),
-  plot.subtitle = element_text(vjust=6,hjust = 0.5,size=10),
-  plot.margin = unit(c(1,1,0,1),"cm"),
-  axis.ticks.x=element_blank(),
-  axis.title.x=element_blank(),
-  axis.text.x=element_blank(),
-  axis.title.y = element_text(vjust=6, size=11),
-  axis.line = element_line(),
-  panel.grid.major.y = element_line(color="grey", size=0.25),
-  panel.background = element_blank())
-
-# 2b. Big 3 Win/Loss against Top 10 Rank Players
-top10_win_loss_p <- big3_stats1 %>%
-  melt() %>% 
-  filter(variable!="win_per") %>%
-  ggplot(aes(x=name, y = value, fill = variable)) +
-  geom_bar(stat="identity", position="dodge", color="black",width=0.6) +
-  labs(y="Matches") +
-  scale_fill_manual(labels = c("Wins", "Losses"),values =c("palegreen2","coral1")) +
-  theme(axis.ticks.x=element_blank(),
-  axis.title.x=element_blank(),
-  axis.text.x=element_text(color="black"),
-  axis.ticks.y=element_blank(),
-  axis.title.y = element_text(vjust=6, size=11),
-  axis.text.y=element_text(color="black"),
-  legend.title = element_blank(),
-  legend.position=c(0.96,0.9),
-  legend.key.size = unit(0.4, 'cm'),
+# 1a. Big 3 Aces per Tournament
+big3_stats2 %>% 
+  group_by(name, tournament) %>% 
+  summarise(avrg_aces=mean(aces)) %>% 
+  ggplot(aes(x = name, y = avrg_aces, fill = tournament)) + 
+  geom_col(position = position_dodge(0.7),width=0.6,color="black") +
+  labs(title="Average Aces",subtitle="by Grandslam (2000-2019)") +
+  scale_y_continuous(expand = c(0, 0), limits = c(0, 15)) +
+  scale_fill_manual(values = c("skyblue2", "darkorange", "dodgerblue4", "palegreen3")) +
+  guides(fill=guide_legend(title="Tournament")) +
+  theme(plot.title = element_text(vjust=7,hjust = 0.5,size=15),
+  plot.subtitle = element_text(vjust=8,hjust = 0.5,size=10),
   plot.margin = unit(c(1,1,1,1),"cm"),
+  axis.title.x=element_blank(),
+  axis.ticks.x=element_blank(),
+  axis.text.x=element_text(color="black"),
+  axis.text.y=element_text(color="black"),
+  axis.ticks.y=element_blank(),
+  axis.title.y = element_blank(),
+  legend.key.size = unit(0.5, 'cm'),
+  legend.title = element_blank(),
   panel.grid.major.y = element_line(color="grey", size=0.25),
   panel.grid.minor.y = element_line(color="grey", size=0.25),
   panel.background = element_blank())
 
-# 2c. Big 3 against Top 10 Rank Players
-grid.arrange(top10_win_rate_p,top10_win_loss_p,nrow=2)
+  #ggsave("Big 3 Average Aces.png")
 
-  #g <- arrangeGrob(top10_win_rate_p,top10_win_loss_p,nrow=2)
-  #ggsave(file="Big 3 vs Top 10 Rank Players.png", g)
+# 1b. Big 3 First Serve % per Tournament
+big3_stats2 %>% 
+  group_by(name,tournament) %>%
+  summarise(avrg_first_serve_per=mean(first_serve_per)) %>%
+  ggplot(aes(x = name, y = avrg_first_serve_per, fill = tournament)) + 
+  geom_col(position = position_dodge(0.7),width=0.6,color="black") +  
+  labs(title="Average First Serve Percentage", subtitle="by Grandslam (2000-2019)") +
+  scale_y_continuous(labels = scales::percent,expand = c(0, 0), limits = c(0, 1), breaks=c(0.5,0.55,0.6,0.65,0.7,0.75)) +
+  scale_fill_manual(values = c("skyblue2", "darkorange", "dodgerblue4", "palegreen3")) +
+  coord_cartesian(ylim=c(0.5,0.75)) +
+  guides(fill=guide_legend(title="Tournament")) +
+  theme(panel.grid.major.y = element_line(color="grey", size=0.25),
+  panel.grid.minor.y = element_line(color="grey", size=0.25),
+  panel.background = element_blank(),
+  plot.margin = unit(c(1,1,1,1),"cm"),
+  plot.title = element_text(vjust=6,hjust = 0.5,size=15),
+  plot.subtitle = element_text(vjust=7,hjust = 0.5,size=10),
+  legend.key.size = unit(0.5, 'cm'),
+  legend.title = element_blank(),
+  axis.title.x=element_blank(),
+  axis.ticks.x=element_blank(),
+  axis.text.x=element_text(color="black"),
+  axis.text.y=element_text(color="black"),
+  axis.ticks.y=element_blank(),
+  axis.title.y=element_blank())
+
+  #ggsave("Big 3 First Serve Percentage.png")
+
+# 2. Big 3 on Return of Serve
+serve_stats <- clean_df %>% 
+  mutate(name = ifelse(name=="Roger Federer", "Roger Federer",
+		    ifelse(name=="Rafael Nadal", "Rafael Nadal",
+		    ifelse(name=="Novak Djokovic", "Novak Djokovic", "Others")))) %>%
+  select(name,first_serve_rtn_won,second_serve_rtn_won)
+
+serve_stats %>%
+  aggregate(by=list(serve_stats$name),FUN=mean,na.rm=TRUE) %>% 
+  select(-name) %>% 
+  rename_with(.cols = 1, ~"name") %>% 
+  melt() %>% 
+  ggplot(aes(x=name,y=value,fill=variable)) +
+  geom_col(position = "dodge",width=0.5,color="black") +
+  labs(title="The Big 3's Average Wins on Return of Serve",subtitle="in Grandslams (2000-2019)") +
+  scale_x_discrete(limits = c("Others","Novak Djokovic", "Rafael Nadal", "Roger Federer")) +
+  scale_y_continuous(expand = c(0, 0), limits = c(0, 30),breaks=c(15,17,19,21,23,25)) +
+  scale_fill_manual(labels = c("First Serve Returns Won", "Second Serve Returns Won"),values =c("palegreen2","skyblue")) +
+  coord_cartesian(ylim=c(15,25)) +
+  theme(axis.ticks.x=element_blank(),
+  axis.title.x=element_blank(),
+  axis.text.x=element_text(color="black"),
+  axis.text.y=element_text(color="black"),
+  axis.ticks.y=element_blank(),
+  axis.title.y = element_blank(),
+  legend.title = element_blank(),
+  legend.key.size = unit(0.4, 'cm'),
+  plot.margin = unit(c(1,1,1,1),"cm"),
+  plot.title = element_text(vjust=7,hjust = 0.5,size=15),
+  plot.subtitle = element_text(vjust=8,hjust = 0.5,size=10),
+  panel.grid.major.y = element_line(color="grey", size=0.25),
+  panel.grid.minor.y = element_line(color="grey", size=0.25),
+  panel.background = element_blank())
+
+  #ggsave(filename="Big 3 on Return of Serve.png",width=10,height=8)
+
+# 3a. Big 3 Break Points Saved Percentage
+bp_stats <- clean_df %>% 
+  mutate(name = ifelse(name=="Roger Federer", "Roger Federer",
+		    ifelse(name=="Rafael Nadal", "Rafael Nadal",
+		    ifelse(name=="Novak Djokovic", "Novak Djokovic", "Others")))) %>%
+  select(name,bp_saved,bp_faced)
+
+bp_saved_perc_p <- bp_stats %>%
+  aggregate(by=list(bp_stats$name),FUN=mean,na.rm=TRUE) %>%
+  mutate(bp_saved_perc=round((bp_saved/bp_faced)*100,1)) %>%
+  select(-name) %>% 
+  rename_with(.cols = 1, ~"name") %>% 
+  ggplot(aes(x=name,y=bp_saved_perc)) +
+  geom_segment(aes(xend=name, yend=0), size = 0.5) +
+  geom_point(size=20, color="black", fill = "deepskyblue", shape = 21, stroke=1) +
+  geom_text(aes(label=sprintf("%.1f", round(bp_saved_perc, digits = 1))), position = position_stack(vjust = 1.0), size = 4.5) +
+  labs(title="The Big 3 in Break Points",subtitle="in Grandslams (2000-2019)", y="Break Points Saved/Faced Percentage") +
+  guides(y="none") +
+  scale_x_discrete(limits = c("Others","Novak Djokovic", "Rafael Nadal", "Roger Federer")) +
+  scale_y_continuous(expand = c(0, 0), limits = c(0, 80)) +
+  theme(plot.title = element_text(vjust=7,hjust = 0.5,size=15),
+  plot.subtitle = element_text(vjust=8,hjust = 0.5,size=10),
+  plot.margin = unit(c(1,1,0,1.8),"cm"),
+  panel.background = element_blank(),
+  panel.grid.major.y = element_line(color="grey", size=0.25),
+  axis.line = element_line(),
+  axis.ticks.x=element_blank(),
+  axis.title.x=element_blank(),
+  axis.text.x=element_blank(),
+  axis.text.y=element_text(color="black"),
+  axis.ticks.y=element_blank(),
+  axis.title.y = element_text(vjust=21, size=9))
+
+# 3b. Big 3 Break Points Saved and Faced
+bp_saved_faced_p <- bp_stats %>%
+  aggregate(by=list(bp_stats$name),FUN=mean,na.rm=TRUE) %>% 
+  select(-name) %>% 
+  rename_with(.cols = 1, ~"name") %>% 
+  melt() %>% 
+  ggplot(aes(x=name,y=value,fill=variable)) +
+  geom_col(position = "dodge",width=0.6, color="black") +
+  labs(y="Average Break Points Saved/Faced") +
+  scale_x_discrete(limits = c("Others","Novak Djokovic", "Rafael Nadal", "Roger Federer")) +
+  scale_y_continuous(expand = c(0, 0), limits = c(0, 10), breaks=c(0,2,4,6,8,10)) +
+  scale_fill_manual(labels = c("Break Points Saved", "Break Points Faced"),values =c("palegreen2","coral1")) +
+  theme(legend.title = element_blank(),
+  legend.position=c(0.92,0.95),
+  legend.key.size = unit(0.4, 'cm'),
+  plot.margin = unit(c(1,1,1,1),"cm"),
+  panel.grid.major.y = element_line(color="grey", size=0.25),
+  panel.background = element_blank(),
+  axis.ticks.x=element_blank(),
+  axis.title.x=element_blank(),
+  axis.text.x=element_text(color="black"),
+  axis.ticks.y=element_blank(),
+  axis.text.y=element_text(color="black"),
+  axis.title.y = element_text(vjust=6, size=9,color="black"))
 
 
-# 3. Big 3 Average Match Duration
+# 3c. Big 3 Break Point Stats
+grid.arrange(bp_saved_perc_p, bp_saved_faced_p,nrow=2)
+
+  #g <- arrangeGrob(bp_saved_perc_p, bp_saved_faced_p,nrow=2)
+  #ggsave(file="Big 3 Break Point Stats.png", g)
+
+# 4. Big 3 Average Match Duration
 big3_stats2 %>% 
   group_by(name, tournament) %>% 
   summarise(avrg_match_mins = mean(match_minutes)) %>%
@@ -162,7 +219,7 @@ big3_stats2 %>%
 
   #ggsave(filename="Big 3 Average Match Duration.png",width=12,height=8)
 
-# 4a. Big 3 Win Rate on 3, 4 and 5 set matches 
+# 5a. Big 3 Win Rate on 3, 4 and 5 set matches 
 sets_stats1 <- big3_stats2 %>%
   group_by(name, num_of_sets, winner) %>%
   tally() %>%
@@ -201,7 +258,7 @@ set_win_rate_p <- merge(sets_stats1, sets_stats2, by=c("name","num_of_sets")) %>
   axis.ticks.y=element_blank(),
   axis.title.y = element_text(vjust=15, size=11))
 
-# 4b. Big 3 Win/Loss in 3, 4 and 5 set matches
+# 5b. Big 3 Win/Loss in 3, 4 and 5 set matches
 set_win_loss_p <- big3_stats2 %>% 
   filter(num_of_sets==3 | num_of_sets==4 | num_of_sets==5) %>%
   ggplot() + 
@@ -225,197 +282,13 @@ set_win_loss_p <- big3_stats2 %>%
   axis.ticks.y=element_blank(),
   axis.title.y = element_text(vjust=6, size=11))
 
-# 4c. 3, 4 and 5 set stats
+# 5c. 3, 4 and 5 set stats
 grid.arrange(set_win_rate_p,set_win_loss_p,nrow=2)
 
   #g <- arrangeGrob(set_win_rate_p,set_win_loss_p,nrow=2)
   #ggsave(file="Big 3 Win-Loss in 3, 4 and 5 set matches.png", g)
 
-
-  # 5. Big 3 Average Aces for every 10 First Serves In     (Not Useful, same as #7)
-big3_stats2 %>% 
-  group_by(name,tournament) %>%
-  summarise(avrg_aces_per_first_serve_in=mean(aces_per_first_serve_in)*10) %>%
-  ggplot(aes(x = name, y = avrg_aces_per_first_serve_in, fill = tournament)) + 
-  geom_col(position = position_dodge(0.8),width=0.7,color="black") +
-  labs(title="Average Aces for every 10 First Serves In by Tournament", y="Aces") +
-  scale_y_continuous(expand = c(0, 0), limits = c(0, 2.1)) +
-  scale_fill_manual(values = c("skyblue2", "darkorange", "dodgerblue4", "palegreen3")) +
-  guides(fill=guide_legend(title="Tournament")) +
-  theme(plot.title = element_text(vjust=5,hjust = 0.5),
-  plot.margin = unit(c(1,1,1,1),"cm"),
-  axis.title.x=element_blank(),
-  axis.ticks.x=element_blank(),
-  axis.text.x=element_text(color="black"),
-  axis.text.y=element_text(color="black"),
-  axis.ticks.y=element_blank(),
-  axis.title.y = element_text(vjust=4, size=11),
-  legend.key.size = unit(0.5, 'cm'),
-  panel.grid.major.y = element_line(color="grey", size=0.25),
-  panel.background = element_blank())
-
-
-# 6. Big 3 First Serve % per Tournament
-big3_stats2 %>% 
-  group_by(name,tournament) %>%
-  summarise(avrg_first_serve_per=mean(first_serve_per)) %>%
-  ggplot(aes(x = name, y = avrg_first_serve_per, fill = tournament)) + 
-  geom_col(position = position_dodge(0.7),width=0.6,color="black") +  
-  labs(title="Average First Serve Percentage", subtitle="by Grandslam (2000-2019)") +
-  scale_y_continuous(labels = scales::percent,expand = c(0, 0), limits = c(0, 1), breaks=c(0.5,0.55,0.6,0.65,0.7,0.75)) +
-  scale_fill_manual(values = c("skyblue2", "darkorange", "dodgerblue4", "palegreen3")) +
-  coord_cartesian(ylim=c(0.5,0.75)) +
-  guides(fill=guide_legend(title="Tournament")) +
-  theme(panel.grid.major.y = element_line(color="grey", size=0.25),
-  panel.grid.minor.y = element_line(color="grey", size=0.25),
-  panel.background = element_blank(),
-  plot.margin = unit(c(1,1,1,1),"cm"),
-  plot.title = element_text(vjust=6,hjust = 0.5,size=15),
-  plot.subtitle = element_text(vjust=7,hjust = 0.5,size=10),
-  legend.key.size = unit(0.5, 'cm'),
-  legend.title = element_blank(),
-  axis.title.x=element_blank(),
-  axis.ticks.x=element_blank(),
-  axis.text.x=element_text(color="black"),
-  axis.text.y=element_text(color="black"),
-  axis.ticks.y=element_blank(),
-  axis.title.y=element_blank())
-
-  #ggsave("Big 3 First Serve Percentage.png")
-
-
-# 7. Big 3 Aces per Tournament
-big3_stats2 %>% 
-  group_by(name, tournament) %>% 
-  summarise(avrg_aces=mean(aces)) %>% 
-  ggplot(aes(x = name, y = avrg_aces, fill = tournament)) + 
-  geom_col(position = position_dodge(0.7),width=0.6,color="black") +
-  labs(title="Average Aces",subtitle="by Grandslam (2000-2019)") +
-  scale_y_continuous(expand = c(0, 0), limits = c(0, 15)) +
-  scale_fill_manual(values = c("skyblue2", "darkorange", "dodgerblue4", "palegreen3")) +
-  guides(fill=guide_legend(title="Tournament")) +
-  theme(plot.title = element_text(vjust=7,hjust = 0.5,size=15),
-  plot.subtitle = element_text(vjust=8,hjust = 0.5,size=10),
-  plot.margin = unit(c(1,1,1,1),"cm"),
-  axis.title.x=element_blank(),
-  axis.ticks.x=element_blank(),
-  axis.text.x=element_text(color="black"),
-  axis.text.y=element_text(color="black"),
-  axis.ticks.y=element_blank(),
-  axis.title.y = element_blank(),
-  legend.key.size = unit(0.5, 'cm'),
-  legend.title = element_blank(),
-  panel.grid.major.y = element_line(color="grey", size=0.25),
-  panel.grid.minor.y = element_line(color="grey", size=0.25),
-  panel.background = element_blank())
-
-  #ggsave("Big 3 Average Aces.png")
-
-
-# 8a. Big 3 Break Points Saved Percentage
-bp_stats <- clean_df %>% 
-  mutate(name = ifelse(name=="Roger Federer", "Roger Federer",
-		    ifelse(name=="Rafael Nadal", "Rafael Nadal",
-		    ifelse(name=="Novak Djokovic", "Novak Djokovic", "Others")))) %>%
-  select(name,bp_saved,bp_faced)
-
-bp_saved_perc_p <- bp_stats %>%
-  aggregate(by=list(bp_stats$name),FUN=mean,na.rm=TRUE) %>%
-  mutate(bp_saved_perc=round((bp_saved/bp_faced)*100,1)) %>%
-  select(-name) %>% 
-  rename_with(.cols = 1, ~"name") %>% 
-  ggplot(aes(x=name,y=bp_saved_perc)) +
-  geom_segment(aes(xend=name, yend=0), size = 0.5) +
-  geom_point(size=20, color="black", fill = "deepskyblue", shape = 21, stroke=1) +
-  geom_text(aes(label=sprintf("%.1f", round(bp_saved_perc, digits = 1))), position = position_stack(vjust = 1.0), size = 4.5) +
-  labs(title="The Big 3 in Break Points",subtitle="in Grandslams (2000-2019)", y="Break Points Saved/Faced Percentage") +
-  guides(y="none") +
-  scale_x_discrete(limits = c("Others","Novak Djokovic", "Rafael Nadal", "Roger Federer")) +
-  scale_y_continuous(expand = c(0, 0), limits = c(0, 80)) +
-  theme(plot.title = element_text(vjust=7,hjust = 0.5,size=15),
-  plot.subtitle = element_text(vjust=8,hjust = 0.5,size=10),
-  plot.margin = unit(c(1,1,0,1.8),"cm"),
-  panel.background = element_blank(),
-  panel.grid.major.y = element_line(color="grey", size=0.25),
-  axis.line = element_line(),
-  axis.ticks.x=element_blank(),
-  axis.title.x=element_blank(),
-  axis.text.x=element_blank(),
-  axis.text.y=element_text(color="black"),
-  axis.ticks.y=element_blank(),
-  axis.title.y = element_text(vjust=21, size=9))
-
-# 8b. Big 3 Break Points Saved and Faced
-bp_saved_faced_p <- bp_stats %>%
-  aggregate(by=list(bp_stats$name),FUN=mean,na.rm=TRUE) %>% 
-  select(-name) %>% 
-  rename_with(.cols = 1, ~"name") %>% 
-  melt() %>% 
-  ggplot(aes(x=name,y=value,fill=variable)) +
-  geom_col(position = "dodge",width=0.6, color="black") +
-  labs(y="Average Break Points Saved/Faced") +
-  scale_x_discrete(limits = c("Others","Novak Djokovic", "Rafael Nadal", "Roger Federer")) +
-  scale_y_continuous(expand = c(0, 0), limits = c(0, 10), breaks=c(0,2,4,6,8,10)) +
-  scale_fill_manual(labels = c("Break Points Saved", "Break Points Faced"),values =c("palegreen2","coral1")) +
-  theme(legend.title = element_blank(),
-  legend.position=c(0.92,0.95),
-  legend.key.size = unit(0.4, 'cm'),
-  plot.margin = unit(c(1,1,1,1),"cm"),
-  panel.grid.major.y = element_line(color="grey", size=0.25),
-  panel.background = element_blank(),
-  axis.ticks.x=element_blank(),
-  axis.title.x=element_blank(),
-  axis.text.x=element_text(color="black"),
-  axis.ticks.y=element_blank(),
-  axis.text.y=element_text(color="black"),
-  axis.title.y = element_text(vjust=6, size=9,color="black"))
-
-
-# 8c. Big 3 Break Point Stats
-grid.arrange(bp_saved_perc_p, bp_saved_faced_p,nrow=2)
-
-  #g <- arrangeGrob(bp_saved_perc_p, bp_saved_faced_p,nrow=2)
-  #ggsave(file="Big 3 Break Point Stats.png", g)
-
-  
-# 9. Big 3 on Return of Serve
-serve_stats <- clean_df %>% 
-  mutate(name = ifelse(name=="Roger Federer", "Roger Federer",
-		    ifelse(name=="Rafael Nadal", "Rafael Nadal",
-		    ifelse(name=="Novak Djokovic", "Novak Djokovic", "Others")))) %>%
-  select(name,first_serve_rtn_won,second_serve_rtn_won)
-
-serve_stats %>%
-  aggregate(by=list(serve_stats$name),FUN=mean,na.rm=TRUE) %>% 
-  select(-name) %>% 
-  rename_with(.cols = 1, ~"name") %>% 
-  melt() %>% 
-  ggplot(aes(x=name,y=value,fill=variable)) +
-  geom_col(position = "dodge",width=0.5,color="black") +
-  labs(title="The Big 3's Average Wins on Return of Serve",subtitle="in Grandslams (2000-2019)") +
-  scale_x_discrete(limits = c("Others","Novak Djokovic", "Rafael Nadal", "Roger Federer")) +
-  scale_y_continuous(expand = c(0, 0), limits = c(0, 30),breaks=c(15,17,19,21,23,25)) +
-  scale_fill_manual(labels = c("First Serve Returns Won", "Second Serve Returns Won"),values =c("palegreen2","skyblue")) +
-  coord_cartesian(ylim=c(15,25)) +
-  theme(axis.ticks.x=element_blank(),
-  axis.title.x=element_blank(),
-  axis.text.x=element_text(color="black"),
-  axis.text.y=element_text(color="black"),
-  axis.ticks.y=element_blank(),
-  axis.title.y = element_blank(),
-  legend.title = element_blank(),
-  legend.key.size = unit(0.4, 'cm'),
-  plot.margin = unit(c(1,1,1,1),"cm"),
-  plot.title = element_text(vjust=7,hjust = 0.5,size=15),
-  plot.subtitle = element_text(vjust=8,hjust = 0.5,size=10),
-  panel.grid.major.y = element_line(color="grey", size=0.25),
-  panel.grid.minor.y = element_line(color="grey", size=0.25),
-  panel.background = element_blank())
-
-  #ggsave(filename="Big 3 on Return of Serve.png",width=10,height=8)
-
-
-# 10. Time in Top 3
+# 6. Time in Top 3
 ranking = big3_stats2[order(big3_stats2[,'year'],-big3_stats2[,'rank']),]
 ranking = ranking[!duplicated(ranking[,c('name','year')]),]
 
@@ -495,7 +368,106 @@ grid.arrange(fed_rank, nad_rank, djo_rank, nrow=3)
   #ggsave(file="Big 3 World Ranking.png", g, width=12,height=8)
 
 
-# 11. Matches Won per Tournament
+# 7. Rank Top 10 Match Wins againt Rank Top 10
+winners <- clean_df[clean_df$rank <= 10 & clean_df$rank >= 1 & clean_df$winner == TRUE,] %>% 
+  select(c("match_id","name"))
+losers <- clean_df[clean_df$rank <= 10 & clean_df$rank >= 1 & clean_df$winner == FALSE,] %>% 
+  select(c("match_id","name"))
+
+top10_rank_winners_sum <- merge(winners, losers[, c("match_id", "name")], by="match_id") %>% 
+  select(-name.y,-match_id) %>% 
+  dplyr::rename(name=name.x) %>% 
+  group_by(name) %>%
+  tally()
+
+
+top10_rank_winners_sum %>% 
+  ggplot(aes(x = reorder(name, n), y = n, fill=name)) + 
+  geom_bar(stat="identity",color="black",width=0.7) +
+  geom_text(aes(label=n), position = position_dodge(),hjust = -0.5, size = 2.75) +
+  labs(title="Wins Against Rank Top 10 Players",subtitle="in Grandslams (2000-2019)") +
+  scale_y_continuous(expand = c(0, 0), limits = c(0, 65)) +
+  scale_fill_manual(values = rep(c("skyblue2","palegreen3","skyblue2","palegreen3","skyblue2","palegreen3","skyblue2"),times=c(21,1,2,1,2,1,5))) +
+  guides(x = "none") +
+  theme(plot.title = element_text(vjust=5,hjust = 0.35,size=15),
+  plot.subtitle = element_text(vjust=6,hjust = 0.4,size=10),
+  plot.margin = unit(c(1,0,1,1),"cm"),
+  axis.line = element_line(),
+  axis.ticks.x=element_blank(),
+  axis.text.x=element_blank(),
+  axis.title.x=element_blank(),
+  axis.title.y=element_blank(),
+  axis.text.y=element_text(color="black"),
+  legend.position = "none",
+  panel.background = element_blank()) +
+  coord_flip()
+
+  #ggsave(filename="Rank Top 10 Match Wins againt Rank Top 10.png",width=12,height=8)
+  
+
+# 8a. Big 3 Win Rate against Top 10 Rank Players
+
+top10_rank_losers_sum <- merge(losers, winners[, c("match_id", "name")], by="match_id") %>% 
+  select(-name.y,-match_id) %>% 
+  dplyr::rename(name=name.x) %>% 
+  group_by(name) %>%
+  tally()
+
+big3_stats1 <- merge(top10_rank_winners_sum, top10_rank_losers_sum, by="name") %>%
+  dplyr::rename(wins=n.x,losses=n.y) %>%
+  mutate(win_per=(wins/(wins+losses))) %>%
+  filter(name=="Roger Federer" | name=="Rafael Nadal" | name=="Novak Djokovic",)
+
+top10_win_rate_p <- big3_stats1 %>%
+  mutate(win_per=round(win_per*100,1)) %>%
+  ggplot(aes(x=name, y = win_per)) +
+  geom_segment(aes(xend=name, yend=0), size = 0.5) +
+  geom_point(size=22, color="black", fill = "deepskyblue", shape = 21, stroke=1) +
+  geom_text(aes(label=sprintf("%.1f", round(win_per, digits = 1))), position = position_stack(vjust = 1.0), size = 5) +
+  labs(title="The Big 3 vs Rank Top 10 Players",subtitle="in Grandslams (2000-2019)", y="Win Percentage") +
+  scale_y_continuous(expand = c(0, 0), limits = c(0, 90)) +
+  guides(y = "none") +
+  theme(plot.title = element_text(vjust=5,hjust = 0.53,size=15),
+  plot.subtitle = element_text(vjust=6,hjust = 0.5,size=10),
+  plot.margin = unit(c(1,1,0,1),"cm"),
+  axis.ticks.x=element_blank(),
+  axis.title.x=element_blank(),
+  axis.text.x=element_blank(),
+  axis.title.y = element_text(vjust=6, size=11),
+  axis.line = element_line(),
+  panel.grid.major.y = element_line(color="grey", size=0.25),
+  panel.background = element_blank())
+
+# 8b. Big 3 Win/Loss against Top 10 Rank Players
+top10_win_loss_p <- big3_stats1 %>%
+  melt() %>% 
+  filter(variable!="win_per") %>%
+  ggplot(aes(x=name, y = value, fill = variable)) +
+  geom_bar(stat="identity", position="dodge", color="black",width=0.6) +
+  labs(y="Matches") +
+  scale_fill_manual(labels = c("Wins", "Losses"),values =c("palegreen2","coral1")) +
+  theme(axis.ticks.x=element_blank(),
+  axis.title.x=element_blank(),
+  axis.text.x=element_text(color="black"),
+  axis.ticks.y=element_blank(),
+  axis.title.y = element_text(vjust=6, size=11),
+  axis.text.y=element_text(color="black"),
+  legend.title = element_blank(),
+  legend.position=c(0.96,0.9),
+  legend.key.size = unit(0.4, 'cm'),
+  plot.margin = unit(c(1,1,1,1),"cm"),
+  panel.grid.major.y = element_line(color="grey", size=0.25),
+  panel.grid.minor.y = element_line(color="grey", size=0.25),
+  panel.background = element_blank())
+
+# 8c. Big 3 against Top 10 Rank Players
+grid.arrange(top10_win_rate_p,top10_win_loss_p,nrow=2)
+
+  #g <- arrangeGrob(top10_win_rate_p,top10_win_loss_p,nrow=2)
+  #ggsave(file="Big 3 vs Top 10 Rank Players.png", g)
+
+
+# 9. Matches Won per Tournament
 A_djo_p <- big3_stats2 %>%
   filter(name=="Novak Djokovic" & tournament == "Australian Open") %>%
   select(name,tournament,winner) %>% 
@@ -770,7 +742,7 @@ grid.arrange(A_djo_p, A_fed_p, A_nad_p, F_djo_p, F_fed_p, F_nad_p, W_djo_p, W_fe
   #ggsave(file="Grandslam Win-Loss.png", g,height=8,width=12)
 
 
-# 12. Grandslams (part 1)
+# 10a. Grandslams
 fed_slams <- big3_stats2 %>% 
   select(name,winner,round,year,tournament) %>% 
   filter(winner == TRUE, round == 'The Final', name == "Roger Federer") %>% 
@@ -865,7 +837,7 @@ slam_count_p1 <- rbind(fed_slams,djo_slams,nad_slams) %>%
   panel.background = element_blank())
 
 
-# 12. Grandslams (part 2)
+# 10b. Grandslams
 slam_count_p2 <- big3_stats2 %>% 
   select(name, tournament, winner, year, round) %>% 
   filter(round=="The Final",winner=="TRUE") %>% 
@@ -894,15 +866,10 @@ slam_count_p2 <- big3_stats2 %>%
   axis.text.y=element_text(color="black"),
   aspect.ratio=0.20)
 
-
-# 12. Grandslams (combined)
+# 10c. Grandslams
 grid.arrange(slam_count_p1,slam_count_p2, nrow=2)
 
   #g <- arrangeGrob(slam_count_p1,slam_count_p2, nrow=2)
   #ggsave(file="Big 3 Grandslams.png", g, width=12,height=6)
-
-
-
-
 
 
