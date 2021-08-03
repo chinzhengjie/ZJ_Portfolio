@@ -1,12 +1,42 @@
 # The Grandslams and GOATs of Tennis
 
-what is a goat
-intro
+The term "GOAT" means the "Greatest Of All Time" and is a commonly used term to describe exactly that: someone who is considered to be the best to ever compete in a particular field. In tennis, we are fortunate enough to be able to experience not one but **three** GOATs during the same era, all of whom are currently tied for the record for the most number of men's singles grandslam titles at 20 each. As counter-intuitive as it sounds to have three GOATs, I feel that the big 3 of tennis (Roger Federer, Rafael Nadal and Novak Djokovic) are all deserving of this prestigious title. As such, I thought it would be interesting to do some analysis on the big three's stats over the past two decades to see just how well they have performed in tennis' four most momentous tournaments: The Australian Open, French Open, Wimbledon and US Open, all of which are otherwise known as the Grandslams.
 
+## The Big 3 (as of August 2021)
+
+### Roger Federer
+**Current World Ranking**: 9 <br/>
+**Career High Ranking**: 1 <br/>
+**Born**: 8 August 1981 <br/>
+**Country**: Switzerland <br/>
+**Grandslam Titles**: 20 <br/>
+**ATP 1000 Titles**: 28 <br/>
+**Turned Pro in Year**: 1998 <br/>
+<br/>
+  
+### Rafael Nadal
+**Current World Ranking**: 3 <br/>
+**Career High Ranking**: 1 <br/>
+**Born**: 3 June 1986 <br/>
+**Country**: Spain <br/>
+**Grandslam Titles**: 20 <br/>
+**ATP 1000 Titles**: 36 <br/>
+**Turned Pro in Year**: 2001 <br/>
+<br/>
+
+### Novak Djokovic
+**Current World Ranking**: 1 <br/>
+**Career High Ranking**: 1 <br/>
+**Born**: 22 May 1987 <br/>
+**Country**: Serbia <br/>
+**Grandslam Titles**: 20 <br/>
+**ATP 1000 Titles**: 36 <br/>
+**Turned Pro in Year**: 2003 <br/>
+<br/>
 
 ## Methodology/Approach
 
-data taken from https://www.kaggle.com/michau96/federer-on-grandslam-tournaments which gathered by combining data from:
+In the analysis, I have utilised three datasets which were taken taken from https://www.kaggle.com/michau96/federer-on-grandslam-tournaments which gathered by combining data from:
 
 - Jeff Sackmann (https://github.com/JeffSackmann)
 - Tennis-Data.co.uk (http://www.tennis-data.co.uk/)
