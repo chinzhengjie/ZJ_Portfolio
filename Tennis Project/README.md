@@ -140,7 +140,7 @@ description
 <br/>
 
 <p align="center">
-<img src="images/10.%20Big%203%20Grandslams.png" width="1000" height="570">
+<img src="images/10.%20Big%203%20Grandslams.png" width="1000" height="500">
 </p>
 
 description
