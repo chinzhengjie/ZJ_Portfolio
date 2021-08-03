@@ -34,17 +34,17 @@ The term "GOAT" means the "Greatest Of All Time" and is a commonly used term to 
 **Turned Pro in Year**: 2003 <br/>
 <br/>
 
-## Methodology/Approach
+## Methodology
 
-In the analysis, I have utilised three datasets which were taken taken from https://www.kaggle.com/michau96/federer-on-grandslam-tournaments which gathered by combining data from:
+In the analysis, I have utilised three datasets which were taken from [kaggle](https://www.kaggle.com/michau96/federer-on-grandslam-tournaments). The author gathered the data by combining other datasets from:
 
 - Jeff Sackmann (https://github.com/JeffSackmann)
 - Tennis-Data.co.uk (http://www.tennis-data.co.uk/)
 - Ultimate Tennis Statistics (https://www.ultimatetennisstatistics.com/)
 
-combine datsets and a bit of data cleaning 
+The analysis was carried out in R and the first step was to combine the three datasets into one large dataset to work with. The Stats.csv was the primary dataframe and I combined both the Match.csv and the Player.csv with it by match_id and player_id respectively. Next, I checked for unusable null values and for duplicates in the data. Thereafter, I removed certain columns which I would not be using and added two more columns derived from existing columns.
 
-we will look at the big 3's performance in the grandslams
+With the prepared and combined dataset, we can now take a look at the analysis of the players' stats.
 
 
 ## Aces
