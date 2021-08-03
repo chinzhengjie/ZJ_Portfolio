@@ -57,7 +57,7 @@ With the prepared and combined dataset, we can now take a look at the analysis o
 ## Aces
 
 <p align="center">
-<img src="images/1.%20%20Big%203%20Average%20Aces.png" width="820" height="700">  
+<img src="images/1.%20Big%203%20Average%20Aces.png" width="700" height="700">  
 </p>
 
 Federer is well known for having the fastest serve among the big three and this is clearly shown in the chart, with him leading in the number of average aces across all tournaments and an overall average of just over 10 aces per match. When we look at the average aces by tournament, we can see that they follow almost exactly the same trend, with the highest number occuring on the grass courts of Wimbledon and the lowest on the clay courts of the French Open. This can be attributed to the speed of the ball being the highest on grass, followed by hard courts and finally, clay.
@@ -66,7 +66,7 @@ Federer is well known for having the fastest serve among the big three and this 
 <br/>
 
 <p align="center">
-<img src="images/1.%20Big%203%20First%20Serve%20Percentage.png" width="850" height="700">
+<img src="images/1.%20Big%203%20First%20Serve%20Percentage.png" width="700" height="700">
 </p>
 
 However, when it comes to first serve consistency, Nadal comes out on top with the highest average first serve percentage across all tournaments. Nadal averages around 67% while Federer is significantly lower at around 63%. At the same time, from both charts, we can see that Djokovic is more balanced in these aspects as he falls in between the other 2 for both average aces and first serve percentage.
@@ -76,7 +76,7 @@ However, when it comes to first serve consistency, Nadal comes out on top with t
 ## Break Points
 
 <p align="center">
-<img src="images/3.%20Big%203%20in%20Break%20Points.png" width="700" height="700">  
+<img src="images/3.%20Big%203%20Break%20Point%20Stats.png" width="700" height="700">  
 </p>
 
 In tennis, the serve is seen as a huge advantage and losing a game on your serve, which means your serve has been broken, is often extremely costly in a match. Thus, a break point is when the player serving is one point away from losing the game. Having said that, even with a good serve, it is almost inevitable for players to face break points at some point in a match. This is where the Big 3 shine. They are three of the mentally strongest players on tour and these tense moments during break points are really where they show their mettle. Not only do all three of them face significantly fewer break points on average than the overall average, they also save a much higher percentage of break points. 
@@ -86,7 +86,7 @@ In tennis, the serve is seen as a huge advantage and losing a game on your serve
 ## Return of Serve
 
 <p align="center">
-<img src="images/2.%20Big%203%20on%20Return%20of%20Serve.png" width="900" height="700">  
+<img src="images/2.%20Big%203%20on%20Return%20of%20Serve.png" width="850" height="680">  
 </p>
 
 The Big 3 are also incredibly good at winning points on first serve returns and this is shown by their significantly higher average wins than the overall average of all players. Yet, on the return of second serves, Djokovic is the strongest by far, with an average of over 22 wins on second serve returns. This is probably one of the reasons why he is known as one of the best returners on tour.
@@ -96,7 +96,7 @@ The Big 3 are also incredibly good at winning points on first serve returns and 
 ## Match Length
 
 <p align="center">
-<img src="images/4.%20Big%20%203%20Average%20Match%20Duration.png" width="950" height="650">  
+<img src="images/4.%20Big%203%20Average%20Match%20Duration.png" width="950" height="650">  
 </p>
 
 When it comes to match length, the more aggressive Federer generally plays the shortest matches. He dishes out the most number of aces per match among the three and is also well known for his net play, both of which will certainly contribute to closing out a match quicker. As for both Nadal and Djokovic, they are more known for being baseline players who rely on their consistency, shot-making and ability to out hit their opponents. This is why their matches are generally longer and more drawn out.
@@ -105,7 +105,7 @@ When it comes to match length, the more aggressive Federer generally plays the s
 <br/>
 
 <p align="center">
-<img src="images/5.%20Big%203%20Win-Loss%20in%203%2C%204%20and%205%20Set%20Matches.png" width="700" height="700">
+<img src="images/5.%20Big%203%20Win-Loss%20in%203%2C%204%20and%205%20set%20matches.png" width="700" height="700">
 </p>
 
 In tennis, most tournaments are played on a best-of-3-sets basis. However, the grandslams are played on best-of-5-sets. This is what makes them so unique and at the same time, so challenging. Although the Big 3 have done well in countless other tournaments, their true achievements are in the grandslams. Having to win 3 sets compared to 2 often makes all the difference in a match. We can see that the Big 3 excel in 3 set matches, which means that they rarely ever lose a match by losing 3 sets in a row to their opponent. However, in 4 set matches, Federer's win rate begins to lag the other two. In 5 set matches, we can see that Djkovic is clearly the strongest, with a win rate of 75.0%, compared to Nadal and Federer's 63.3% and 63.6% respectively. This really speaks to Djokovic's mental strength and physical fitness.
@@ -145,7 +145,7 @@ Although all three of them have impressive win rates against top 10 players, Nad
 ## The Grandslams
 
 <p align="center">
-<img src="images/9.%20Grandslam%20Win-Loss.png" width="1000" height="555">  
+<img src="images/9.%20Grandslam%20Win-Loss.png" width="1000" height="665">  
 </p>
 
 From this chart, we can see that Nadal has an absolutely stunning win rate at the French Open. With only 2 losses and 93 wins, it is obvious why Nadal is often dubbed the "King of Clay". At the same time, his weakest grandslam is Wimbledon. This is because on clay courts, the ball tends to travel slower and this gives him a little more time to set up his shots, which he does better than anyone else. Conversely, Federer excels the most in Wimbledon, with 12 losses and a whopping 101 wins. The faster grass courts fit his aggressive play style and allow him to end points quickly. As for Djokovic, he is a more all-rounded player and is able to play well on each surface. However, he does particularly well on the hard courts in the Australian Open, where he has the highest win rate among the three, at 89%.
