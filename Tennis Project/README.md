@@ -105,7 +105,7 @@ description
 ## World Ranking
 
 <p align="center">
-<img src="images/6.%20Big%203%20World%20Ranking.png" width="1000" height="750">  
+<img src="images/6.%20Big%203%20World%20Ranking.png" width="1000" height="700">  
 </p>
 
 description
@@ -113,7 +113,7 @@ description
 <br/>
 
 <p align="center">
-<img src="images/7.%20Rank%20Top%2010%20Match%20Wins%20againt%20Rank%20Top%2010.png" width="1000" height="750">
+<img src="images/7.%20Rank%20Top%2010%20Match%20Wins%20againt%20Rank%20Top%2010.png" width="1000" height="700">
 </p>
 
 description
@@ -140,7 +140,7 @@ description
 <br/>
 
 <p align="center">
-<img src="images/10.%20Big%203%20Grandslam%20Wins.png" width="1000" height="560">
+<img src="images/10.%20Big%203%20Grandslam%20Wins.png" width="970" height="560">
 </p>
 
 description
