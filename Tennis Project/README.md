@@ -89,7 +89,7 @@ The Big 3 are also incredibly good at winning points on first serve returns and 
 <img src="images/4.%20Big%20%203%20Average%20Match%20Duration.png" width="950" height="650">  
 </p>
 
-When it comes to match length, the more aggressive Federer generally plays the shortest matches. He dishes out the most number of aces per match among the three and is also well known for his net play, both of which will certainly contribute to closing out a match quicker. As for both Nadal and Djkovic, they are more known for being baseline players who rely on their consistency, shot-making and ability to out hit their opponents. This is why their matches are generally longer and more drawn out.
+When it comes to match length, the more aggressive Federer generally plays the shortest matches. He dishes out the most number of aces per match among the three and is also well known for his net play, both of which will certainly contribute to closing out a match quicker. As for both Nadal and Djokovic, they are more known for being baseline players who rely on their consistency, shot-making and ability to out hit their opponents. This is why their matches are generally longer and more drawn out.
 
 <br/>
 <br/>
@@ -98,7 +98,7 @@ When it comes to match length, the more aggressive Federer generally plays the s
 <img src="images/5.%20Big%203%20Win-Loss%20in%203%2C%204%20and%205%20Set%20Matches.png" width="700" height="700">
 </p>
 
-In tennis, most tournaments are played on a best-of-3-sets basis. However, the grandslams are played on best-of-5-sets. This is what makes them so unique and at the same time, so challenging. Although the Big 3 have done well in countless other tournaments, their true achievements are in the grandslams. Having to win 3 sets compared to 2 often makes all the difference in a match. As such, we can see that in 3 set matches, the Big 3 all excel. However, in 4 set matches, Federer's win rate begins lags the other two. By the time we reach the 5 set matches, we can see that Djkovic is clearly the strongest, with a win rate of 75.0%, compared to Nadal and Federer's 63.3% and 63.6% respectively. This really speaks to Djokovic's mental strength and physical fitness.
+In tennis, most tournaments are played on a best-of-3-sets basis. However, the grandslams are played on best-of-5-sets. This is what makes them so unique and at the same time, so challenging. Although the Big 3 have done well in countless other tournaments, their true achievements are in the grandslams. Having to win 3 sets compared to 2 often makes all the difference in a match. We can see that the Big 3 excel in 3 set matches, which means that they rarely ever lose a match by losing 3 sets in a row to their opponent. However, in 4 set matches, Federer's win rate begins to lag the other two. In 5 set matches, we can see that Djkovic is clearly the strongest, with a win rate of 75.0%, compared to Nadal and Federer's 63.3% and 63.6% respectively. This really speaks to Djokovic's mental strength and physical fitness.
 
 <br/>
 
@@ -118,7 +118,7 @@ Through this analysis so far, we have been able to see some of the Big 3's indiv
 <img src="images/7.%20Rank%20Top%2010%20Match%20Wins%20againt%20Rank%20Top%2010.png" width="1000" height="665">
 </p>
 
-Their match wins against top 10 ranked players in the grandslams are phenomenal. Federer, Nadal and Djokovic have 59, 47 and 46 wins respectively and the next player who comes closest to this is Andy Murray, who has 19 wins. 19 might seem much less impressive but Murray is actually an incredible player as well who has won 3 grandslams. This simply reiterates the dominance of the Big 3 and shows how they really are in a league of their own.
+Their match wins against top 10 ranked players in the grandslams are phenomenal as well. Federer, Nadal and Djokovic have 59, 47 and 46 wins respectively and the next player who comes closest to this is Andy Murray, who has 19 wins. 19 might seem much less impressive but Murray is actually an incredible player as well who has won 3 grandslams. This simply reiterates the dominance of the Big 3 and shows how they really are in a league of their own.
 
 <br/>
 <br/>
@@ -138,7 +138,7 @@ Although all three of them have impressive win rates against top 10 players, Nad
 <img src="images/9.%20Grandslam%20Win-Loss.png" width="1000" height="555">  
 </p>
 
-From this chart, we can see that Nadal has an absolutely stunning win rate at the French Open. With only 2 losses and 93 wins at the French Open, it is obvious why Nadal is often dubbed the "King of Clay". At the same time, his weakest grandslam is Wimbledon. This is because on clay courts, the ball tends to travel slower and this gives him a little more time to set up his shots, which he does better than anyone else. Conversely, Federer excels the most in Wimbledon, with 12 losses and a whopping 101 wins. The faster grass courts fit his aggressive play style and allow him to end points quickly. As for Djokovic, he is a more all-rounded player and is able to play well on each surface. However, he does particularly well on the hard courts in the Australian Open, where he has the highest win rate (89%) among the three.
+From this chart, we can see that Nadal has an absolutely stunning win rate at the French Open. With only 2 losses and 93 wins, it is obvious why Nadal is often dubbed the "King of Clay". At the same time, his weakest grandslam is Wimbledon. This is because on clay courts, the ball tends to travel slower and this gives him a little more time to set up his shots, which he does better than anyone else. Conversely, Federer excels the most in Wimbledon, with 12 losses and a whopping 101 wins. The faster grass courts fit his aggressive play style and allow him to end points quickly. As for Djokovic, he is a more all-rounded player and is able to play well on each surface. However, he does particularly well on the hard courts in the Australian Open, where he has the highest win rate among the three, at 89%.
 
 <br/>
 <br/>
@@ -147,11 +147,11 @@ From this chart, we can see that Nadal has an absolutely stunning win rate at th
 <img src="images/10.%20Big%203%20Grandslams.png" width="1000" height="500">
 </p>
 
-Finally, this chart shows the culmination of the Big 3's grandslam achievements. Although the dataset only covers 2000 to 2019, I decided to add 2020 and 2021's data for this chart. We can see that by 2021, all three of them are tied for the record for the most number of men's singles grandslam titles at 20 a piece. 60 grandslams evenly distributed among these three amazing players. On top of this, since 2003, only a handful of grandslams have been won by someone aside from the Big 3 and this fully illustrates their dominance in this era. For years, many have talked about a new generation of younger players coming in to compete against the Big 3. However, they still have a long way to go as the Big 3 continue to dominate the grandslams every year.
+Finally, this chart shows the culmination of the Big 3's grandslam achievements. As the dataset only covers from 2000 up to 2019, I decided to add 2020 and 2021's data for this chart. We can see that by 2021, all three of them are tied for the record for the most number of men's singles grandslam titles at 20 a piece. 60 grandslams evenly distributed among these three amazing players. On top of this, since 2003, only a handful of grandslams have been won by someone aside from the Big 3 and this fully illustrates their dominance in this era. For years, many have talked about a new generation of younger players coming in to compete against the Big 3. However, they still have a long way to go as the Big 3 continue to dominate the grandslams every year.
 
 <br/>
 
 
 ## Conclusion
 
-There has been much discussion and debate over who has the right to be called the GOAT. There are valid points to each side of the argument but overall, I feel that there is no need for there to be only one GOAT. Roger Federer, Rafael Nadal and Novak Djokovic have all proven themselves to be an integral part of tennis. On many occasions, each of them has even mentioned that their rivalries drive them to become even better. This has inadvertently led to the greatest era in tennis. Sadly, the three of them cannot compete forever and they will all retire one day. However, their incredible achievements and the legacies they leave behind will forever be etched in history.
+There has been much discussion and debate over who has the right to be called the GOAT. There are valid points to each side of the argument but overall, I feel that there is no need for there to be only one GOAT. Roger Federer, Rafael Nadal and Novak Djokovic have all proven themselves to be an integral part of tennis. On many occasions, each of them has even mentioned that their rivalries drive them to become even better and to compete at an even higher level. This has inadvertently led to the greatest era in tennis. Sadly, the three of them cannot compete forever and they will all inevitably retire one day. However, their incredible achievements and the legacies they leave behind will forever be etched in history and regarded as the greatest of all time.
