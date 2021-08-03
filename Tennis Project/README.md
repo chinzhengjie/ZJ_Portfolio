@@ -86,7 +86,7 @@ description
 ## Match Length
 
 <p align="center">
-<img src="images/4.%20Big%203%20Average%20Match%20Duration.png" width="950" height="650">  
+<img src="images/4.%20Big%20%203%20Average%20Match%20Duration.png" width="950" height="650">  
 </p>
 
 description
@@ -140,7 +140,7 @@ description
 <br/>
 
 <p align="center">
-<img src="images/10.%20Big%203%20Grandslam%20Wins.png" width="1000" height="570">
+<img src="images/10.%20Big%203%20Grandslams.png" width="1000" height="570">
 </p>
 
 description
