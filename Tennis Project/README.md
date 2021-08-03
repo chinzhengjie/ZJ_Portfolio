@@ -116,7 +116,7 @@ In tennis, most tournaments are played on a best-of-3-sets basis. However, the g
 ## World Ranking
 
 <p align="center">
-<img src="images/6.%20Big%203%20World%20Ranking.png" width="1000" height="665">  
+<img src="images/6.%20Big%203%20%20World%20Ranking.png" width="1000" height="665">  
 </p>
 
 Through this analysis so far, we have been able to see some of the Big 3's individual strengths. However, when we look at their ranking over the years, we get a better picture of their dominance as contemporaries. They have spent a huge portion of the time between 2000 and 2019 trading positions within the top 3 ranks. Of course, there are periods where they fall out of the top 3 but these are often due to injuries. When the Big 3 are on form, they certainly compete on another level compared to the rest of the tour.
