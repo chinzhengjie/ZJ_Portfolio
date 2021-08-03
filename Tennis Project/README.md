@@ -155,8 +155,3 @@ Finally, this chart shows the culmination of the Big 3's grandslam achievements.
 ## Conclusion
 
 There has been much discussion and debate over who has the right to be called the GOAT. There are valid points to each side of the argument but overall, I feel that there is no need for there to be only one GOAT. Roger Federer, Rafael Nadal and Novak Djokovic have all proven themselves to be an integral part of tennis. On many occasions, each of them has even mentioned that their rivalries drive them to become even better. This has inadvertently led to the greatest era in tennis. Sadly, the three of them cannot compete forever and they will all retire one day. However, their incredible achievements and the legacies they leave behind will forever be etched in history.
-
-
-
-
-
