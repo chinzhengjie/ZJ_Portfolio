@@ -49,60 +49,103 @@ With the prepared and combined dataset, we can now take a look at the analysis o
 
 ## Aces
 
-@image of ace stats   @image of ace stats
+<p align="center">
+<img src="images/1.%20Big%203%20Average%20Aces.png" width="700" height="700">  
+</p>
+
+description
+<br/>
+<br/>
+
+<p align="center">
+<img src="images/1.%20Big%203%20First%20Serve%20Percentage.png" width="850" height="700">
+</p>
 
 description
 
+<br/>
 
 ## Return of Serve
 
-@image of chart
+<p align="center">
+<img src="images/2.%20Big%203%20on%20Return%20of%20Serve.png" width="800" height="700">  
+</p>
 
 description
 
 
 ## Break Points
 
-@image of chart
+<p align="center">
+<img src="images/3.%20Big%203%20in%20Break%20Points.png" width="700" height="700">  
+</p>
 
 description
 
 
 ## Match Length
 
-@image of match duration
+<p align="center">
+<img src="images/4.%20Big%203%20Average%20Match%20Duration.png" width="850" height="700">  
+</p>
+
+description
+<br/>
+<br/>
+
+<p align="center">
+<img src="images/5.%20Big%203%20Win-Loss%20in%203%2C%204%20and%205%20Set%20Matches.png" width="700" height="700">
+</p>
 
 description
 
-@image of num of sets 345
-
-description
+<br/>
 
 
 ## World Ranking
 
-@image of ranking
+<p align="center">
+<img src="images/6.%20Big%203%20World%20Ranking.png" width="950" height="600">  
+</p>
+
+description
+<br/>
+<br/>
+
+<p align="center">
+<img src="images/7.%20Rank%20Top%2010%20Match%20Wins%20againt%20Rank%20Top%2010.png" width="950" height="600">
+</p>
+
+description
+<br/>
+<br/>
+
+<p align="center">
+<img src="images/8.%20Big%203%20vs%20Top%2010%20Rank%20Players.png" width="700" height="700">
+</p>
 
 description
 
-@image of top 10 vs top 10
-
-description
-
-@image of big3 vs top 10
-
-description
+<br/>
 
 
 ## The Grandslams
 
-@image of GS wins
+<p align="center">
+<img src="images/9.%20Grandslam%20Win-Loss.png" width="1000" height="500">  
+</p>
+
+description
+<br/>
+<br/>
+
+<p align="center">
+<img src="images/10.%20Big%203%20Grandslam%20Wins.png" width="1000" height="500">
+</p>
 
 description
 
-@image of the final chart
-
-description
+<br/>
 
 
 ## Conclusion
