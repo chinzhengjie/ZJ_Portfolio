@@ -2,7 +2,11 @@
 
 The term "GOAT" means the "Greatest Of All Time" and is a commonly used term to describe exactly that: someone who is considered to be the best to ever compete in a particular field. In tennis, we are fortunate enough to be able to experience not one but **three** GOATs during the same era, all of whom are currently tied for the record for the most number of men's singles grandslam titles at 20 each. As counter-intuitive as it sounds to have three GOATs, I feel that "The Big 3" of tennis (Roger Federer, Rafael Nadal and Novak Djokovic) are all deserving of this prestigious title. Their dominance over the last two decades has led to the advent of arguably the strongest era of tennis in all of history. As such, I thought it would be interesting and insightful to do some analysis on the big three's stats over this period to see just how well they have performed in tennis' four most momentous tournaments: The Australian Open (AO), French Open (FO), Wimbledon (W) and US Open (UO), otherwise known as the Grandslams.
 
+<br/>
+
 ## The Big 3 (as of August 2021)
+
+<br/>
 
 ### Roger Federer
 **Current World Ranking**: 9 <br/>
@@ -32,6 +36,8 @@ The term "GOAT" means the "Greatest Of All Time" and is a commonly used term to 
 **Grandslam Titles**: 20 (9 AO, 2 FO, 6 W, 3 UO) <br/>
 **ATP 1000 Titles**: 36 <br/>
 **Turned Pro in Year**: 2003 <br/>
+
+<br/>
 <br/>
 
 ## Methodology
@@ -46,6 +52,7 @@ The analysis was carried out in R and the first step was to combine the three da
 
 With the prepared and combined dataset, we can now take a look at the analysis of the players' stats.
 
+<br/>
 
 ## Aces
 
@@ -74,6 +81,8 @@ However, when it comes to first serve consistency, Nadal comes out on top with t
 
 In tennis, the serve is seen as a huge advantage and losing a game on your serve, which means your serve has been broken, is often extremely costly in a match. Thus, a break point is when the player serving is one point away from losing the game. Having said that, even with a good serve, it is almost inevitable for players to face break points at some point in a match. This is where the Big 3 shine. They are three of the mentally strongest players on tour and these tense moments during break points are really where they show their mettle. Not only do all three of them face significantly fewer break points on average than the overall average, they also save a much higher percentage of break points. 
 
+<br/>
+
 ## Return of Serve
 
 <p align="center">
@@ -82,6 +91,7 @@ In tennis, the serve is seen as a huge advantage and losing a game on your serve
 
 The Big 3 are also incredibly good at winning points on first serve returns and this is shown by their significantly higher average wins than the overall average of all players. Yet, on the return of second serves, Djokovic is the strongest by far, with an average of over 22 wins on second serve returns. This is probably one of the reasons why he is known as one of the best returners on tour.
 
+<br/>
 
 ## Match Length
 
