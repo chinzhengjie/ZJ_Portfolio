@@ -50,7 +50,7 @@ With the prepared and combined dataset, we can now take a look at the analysis o
 ## Aces
 
 <p align="center">
-<img src="images/1.%20Big%203%20Average%20Aces.png" width="700" height="700">  
+<img src="images/1.%20%20Big%203%20Average%20Aces.png" width="820" height="700">  
 </p>
 
 description
@@ -68,7 +68,7 @@ description
 ## Return of Serve
 
 <p align="center">
-<img src="images/2.%20Big%203%20on%20Return%20of%20Serve.png" width="800" height="700">  
+<img src="images/2.%20Big%203%20on%20Return%20of%20Serve.png" width="870" height="700">  
 </p>
 
 description
@@ -86,7 +86,7 @@ description
 ## Match Length
 
 <p align="center">
-<img src="images/4.%20Big%203%20Average%20Match%20Duration.png" width="850" height="700">  
+<img src="images/4.%20Big%203%20Average%20Match%20Duration.png" width="900" height="650">  
 </p>
 
 description
@@ -105,7 +105,7 @@ description
 ## World Ranking
 
 <p align="center">
-<img src="images/6.%20Big%203%20World%20Ranking.png" width="950" height="600">  
+<img src="images/6.%20Big%203%20World%20Ranking.png" width="900" height="700">  
 </p>
 
 description
@@ -113,7 +113,7 @@ description
 <br/>
 
 <p align="center">
-<img src="images/7.%20Rank%20Top%2010%20Match%20Wins%20againt%20Rank%20Top%2010.png" width="950" height="600">
+<img src="images/7.%20Rank%20Top%2010%20Match%20Wins%20againt%20Rank%20Top%2010.png" width="900" height="700">
 </p>
 
 description
@@ -132,7 +132,7 @@ description
 ## The Grandslams
 
 <p align="center">
-<img src="images/9.%20Grandslam%20Win-Loss.png" width="1000" height="500">  
+<img src="images/9.%20Grandslam%20Win-Loss.png" width="900" height="500">  
 </p>
 
 description
@@ -140,7 +140,7 @@ description
 <br/>
 
 <p align="center">
-<img src="images/10.%20Big%203%20Grandslam%20Wins.png" width="1000" height="500">
+<img src="images/10.%20Big%203%20Grandslam%20Wins.png" width="900" height="500">
 </p>
 
 description
