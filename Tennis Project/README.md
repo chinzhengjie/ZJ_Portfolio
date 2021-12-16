@@ -9,7 +9,6 @@ The term "GOAT" means the "Greatest Of All Time" and is a commonly used term to 
 <br/>
 
 ### Roger Federer
-**Current World Ranking**: 9 <br/>
 **Career High Ranking**: 1 <br/>
 **Born**: 8 August 1981 <br/>
 **Country**: Switzerland <br/>
@@ -19,7 +18,6 @@ The term "GOAT" means the "Greatest Of All Time" and is a commonly used term to 
 <br/>
   
 ### Rafael Nadal
-**Current World Ranking**: 3 <br/>
 **Career High Ranking**: 1 <br/>
 **Born**: 3 June 1986 <br/>
 **Country**: Spain <br/>
@@ -29,7 +27,6 @@ The term "GOAT" means the "Greatest Of All Time" and is a commonly used term to 
 <br/>
 
 ### Novak Djokovic
-**Current World Ranking**: 1 <br/>
 **Career High Ranking**: 1 <br/>
 **Born**: 22 May 1987 <br/>
 **Country**: Serbia <br/>
