@@ -1,10 +1,3 @@
----
-title: "Airline Project"
-author: "ZJ"
-date: "10/15/2021"
-output: html_document
----
-
 ```{r}
 library(tidyr)
 library(ggplot2)
@@ -65,7 +58,7 @@ flights_cleaned$ACTUAL_ARRIVAL_TIME[index] <- flights_cleaned$ACTUAL_ARRIVAL_TIM
 head(flights_cleaned,5)
 ```
 
-### Which airline is the best?
+### Airline Analysis
 
 ```{r}
 flights_cleaned$delays <- ifelse(flights_cleaned$AIR_SYSTEM_DELAY > 0,1, ifelse(flights_cleaned$LATE_AIRCRAFT_DELAY > 0,1,ifelse(flights_cleaned$AIRLINE_DELAY > 0,1,0)))
@@ -114,8 +107,6 @@ total_flights_plot <- airline_stats %>% ggplot(aes(x = reorder(AIRLINE, -count),
   theme(axis.title.x=element_blank(),legend.position = "none", axis.text.y = element_text(angle = 90,hjust=0.5))
 ```
 
-
-### 1, 2, 3 Combined
 ```{r, fig.width=7,fig.height=8}
 grid.arrange(avrg_delay_plot,delay_perc_plot,total_flights_plot,top="Airline Comparison")
 ```
@@ -128,17 +119,12 @@ airline_stats %>% ggplot(aes(x=delay_perc,y=avrg_delay,size=count)) +
   labs(title="Airline Comparison",x="Percentage of Flights Delayed",y="Average Delay (Minutes)",size="Total Flights",color="Airline")
 ```
 
-From the visualisations, we can see that based on the average delay and percentage of flights delayed, HA, AS and US perform the best. However, they have very few total flights. Comparatively, airlines such as WN, DL, OO and AA have a significantly greater number of flights yet still manage to do relatively well.
-
-
-
 ### Consider peak months
 
 ```{r}
 flights_cleaned %>% mutate(month=month(date)) %>% group_by(month) %>% summarise(n=n())
 ```
 
-The busiest months of the year for airlines tend to be June, July and August.
 
 ```{r}
 flights_cleaned_busy <- flights_cleaned %>% mutate(month=month(date)) %>% filter(month==6|month==7|month==8)
@@ -183,7 +169,6 @@ total_flights_plot_b <- airline_stats_b %>% ggplot(aes(x = reorder(AIRLINE, -cou
   theme(axis.title.x=element_blank(),legend.position = "none",axis.text.y = element_text(angle = 90,hjust=0.5))
 ```
 
-### 4, 5, 6 Combined
 ```{r, fig.width=7,fig.height=8}
 grid.arrange(avrg_delay_plot_b,delay_perc_plot_b,total_flights_plot_b,top="Airline Comparison (Peak Months)")
 ```
@@ -196,10 +181,7 @@ airline_stats_b %>% ggplot(aes(x=delay_perc,y=avrg_delay,size=count)) +
   labs(title="Airline Comparison (Peak Months)",x="Percentage of Flights Delayed",y="Average Delay (Minutes)",size="Total Flights",color="Airline")
 ```
 
-When we analyse the performance of the airlines during the busiest months of the year (Jun, Jul, Aug), we find that HA and AS still have the best performance. However, for the larger airlines, DL and OO are still able to main their performance in terms average delay and percentage of delayed flights. AA and WN's performance, on the other hand, visibly deteriorates during the peak months.
-
-
-### Which airport is best?
+### Airport Analysis
 ```{r}
 avrg_airport_delay <- flights_cleaned %>% 
   mutate(airport_delay_duration=ifelse(flights_cleaned$SECURITY_DELAY > 0,flights_cleaned$SECURITY_DELAY, ifelse(flights_cleaned$WEATHER_DELAY > 0,flights_cleaned$WEATHER_DELAY,NA))) %>% 
@@ -237,8 +219,6 @@ merged2 %>% filter(origin>=1000) %>%
   geom_text(aes(label=ORIGIN_AIRPORT,hjust=-0.5,vjust=0.5),size=3)
 ```
 
-For this visualisation, we filter out airports with fewer than 1000 total flights. Taking into account the total flights at each airport, LAX and SFO perform the best with the lowest average delay and lowest percentage of flights delayed.
-
 ### Average Taxi Out against Average Taxi In
 ```{r, fig.width=10,fig.height=8}
 merged2 %>% filter(origin>=1000) %>%                                               
@@ -248,9 +228,7 @@ merged2 %>% filter(origin>=1000) %>%
   geom_text(aes(label=ORIGIN_AIRPORT,hjust=0.5,vjust=-1.4),size=3)
 ```
 
-Similarly, here, we also filter out airports with fewer than 1000 total flights. When it comes to average taxi in and out duration, LAX performs quite poorly compared to others, despite doing well in the terms of delays. Airports such as PHX, SFO and LAS have better average taxi in and out durations.
-
-### Airport connectivity
+### Airport Connectivity
 ```{r}
 flights_cleaned %>% group_by(ORIGIN_AIRPORT) %>% 
   summarise(count = n_distinct(DESTINATION_AIRPORT)) %>% 
@@ -263,10 +241,7 @@ flights_cleaned %>% group_by(ORIGIN_AIRPORT) %>%
   coord_flip()
 ```
 
-Airports are also measured by their connectivity, which is the number of connections an airport has to other airports. In this regard, ATL, ORD, DFW, 10397 and 13930 are the top 5.
-
-
-### What is the seasonal effect on flight performance?
+### Seasonal effect on flight performance
 ```{r}
 num_flights <- flights_cleaned %>% mutate(month=month(date)) %>% group_by(month) %>% summarise(num_flights=n())
 
@@ -301,8 +276,6 @@ delay_types %>% ggplot() +
   theme(axis.title.x=element_blank()) +
   scale_x_continuous(breaks=c(1,2,3,4,5,6,7,8,9,10,11,12),labels=c("Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"))
 ```
-
-From the visualisation, we can see that the periods with the greatest effects on delays are Jun-Jul and Dec-Feb. These periods experience the highest percentage of delays.
 
 ### Taxi In and Out across the year
 ```{r}
@@ -348,9 +321,6 @@ cancelled_flights <- flights_cleaned %>% mutate(month=month(date)) %>%
 grid.arrange(taxi_in,taxi_out,cancelled_flights,top="Seasonal Effect on Performance")
 ```
 
-When comparing taxi durations, we find a similar trend, with Dec-Feb and Jun-Aug experiencing the highest average taxi in and out durations. The number of cancelled flights is also high in Jan, Feb, Jun and Dec. Notably, Feb has the highest number of cancellations by far.
-
-
 ### Visualise data on a map
 ```{r}
 
@@ -372,8 +342,8 @@ map1 <- get_map(location=loc,zoom=2,source="google",maptype="roadmap")
 m1 <- ggmap(map1, base_layer = ggplot(data=airport_connectivity,aes(x=LONGITUDE,y=LATITUDE,color=unique_routes)))
 ```
 
+### Airport Connectivity
 ```{r, fig.width=8,fig.height=8}
-# Map of Airport Connectivity
 m1 + geom_point(alpha=0.9,size=1.5) +
   geom_point(shape = 1,size = 1.5,colour = "black",alpha=0.2) +
   labs(title="Airport Connectivity",x="Longitude",y="Latitude",color="Unique Routes") +
@@ -382,9 +352,8 @@ m1 + geom_point(alpha=0.9,size=1.5) +
   scale_color_gradient(low="blue", high="red")
 ```
 
-This visualisation shows the airports with the best connectivity.
 
-### Regions that experience the most weather delays
+### Weather delays across regions
 ```{r}
 weather_delay <- flights_cleaned %>% filter(WEATHER_DELAY>0) %>% 
   select(ORIGIN_AIRPORT,WEATHER_DELAY) %>% 
@@ -394,5 +363,3 @@ weather_delay <- flights_cleaned %>% filter(WEATHER_DELAY>0) %>%
 leaflet(weather_delay) %>% addProviderTiles(providers$CartoDB.DarkMatter) %>% 
   addWebGLHeatmap(lng=~LONGITUDE, lat=~LATITUDE, size = 200000)
 ```
-
-This visualisation shows the regions which experience the most weather delays.
