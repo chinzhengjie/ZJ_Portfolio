@@ -34,7 +34,7 @@ Main Dataset
 </b> </p>
 
 <p align="center">
-<img src="images/Merged%20Dataset.PNG">
+<img src="Images/Airline%20Comparison%20(Peak)%20(Scatter).PNG">
 </p>
 
 <br/><br/>
