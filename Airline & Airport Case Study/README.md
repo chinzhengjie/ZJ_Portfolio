@@ -29,16 +29,6 @@ After importing the 4 quarters of data provided (Q2, Q3, Q4 of 2019 and Q1 of 20
 
 <br/>
 
-<p align="center"> <b>
-Main Dataset
-</b> </p>
-
-<p align="center">
-<img src="Images/Airline%20Comparison%20(Peak)%20(Scatter).PNG">
-</p>
-
-<br/><br/>
-
 ## Analysis & Findings: Airlines
 
 ### Full 12-Month Period
