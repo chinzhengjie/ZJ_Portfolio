@@ -34,7 +34,7 @@ Main Dataset
 </b> </p>
 
 <p align="center">
-<img src="Images/Airline%20Comparison%20(Peak)%20(Scatter).PNG"><img src="Images/Airline%20Comparison%20(Peak)%20(Scatter).PNG">
+<img src="Images/Airline%20Comparison%20(Peak)%20(Scatter).PNG">
 </p>
 
 <br/><br/>
@@ -47,6 +47,10 @@ Main Dataset
 Airline Comparison
 </b> </p>
 
+<p align="center">
+<img src="Images/Airline%20Comparison.PNG" width="500" height="500"><img src="Images/Airline%20Comparison%20(Scatter).PNG" width="500">
+</p>
+
 (chart of airline comparison) (chart of airline comparison scatterplot)
 
 -description-
@@ -54,8 +58,12 @@ Airline Comparison
 ### Peak 3-Month Period (Jun-Aug)
 
 <p align="center"> <b>
-Airline Comparison
+Airline Comparison During Peak Months
 </b> </p>
+
+<p align="center">
+<img src="Images/Airline%20Comparison%20(Peak).PNG"><img src="Images/Airline%20Comparison%20(Peak)%20(Scatter).PNG">
+</p>
 
 (chart of airline comparison during peak) (chart of airline comparison scatterplot during peak)
 
@@ -64,24 +72,36 @@ Airline Comparison
 ## Analysis & Findings: Airports
 
 <p align="center"> <b>
-Airline Comparison
+Airport Comparison
 </b> </p>
+
+<p align="center">
+<img src="Images/Airport%20Comparison%201.PNG"><img src="Images/Airport%20Comparison%202.PNG">
+</p>
 
 (chart of airport comparison 1) (chart of airport comparison 2)
 
 -description-
 
 <p align="center"> <b>
-Airline Comparison
+Airport Connectivity
 </b> </p>
+
+<p align="center">
+<img src="Images/Airport%20Connectivity.PNG">
+</p>
 
 (chart of airport connectivity)
 
 -description-
 
 <p align="center"> <b>
-Airline Comparison
+Seasonal Impact on Airports
 </b> </p>
+
+<p align="center">
+<img src="Images/Seasonal%20Effect%20on%20Types%20of%20Delay.PNG"><img src="Images/Seasonal%20Effect%20on%20Airport%20Performance.PNG">
+</p>
 
 (chart of seasonal impact on types of delay) (chart of seasonal impact on performance)
 
@@ -89,13 +109,25 @@ Airline Comparison
 
 ## Map Visualisations of Airports
 
+<p align="center"> <b>
+Map of Airport Connectivity
+</b> </p>
+
+<p align="center">
+<img src="Images/Airport%20Connectivity%20Map.PNG">
+</p>
+
 (map of airport connectivity)
 
 -description-
 
 <p align="center"> <b>
-Airline Comparison
+Map of Weather Delays in Airports
 </b> </p>
+
+<p align="center">
+<img src="Images/Map%20of%20Weather%20Delays.PNG">
+</p>
 
 (map of weather delays)
 
