@@ -1,4 +1,4 @@
-# Cyclistic Bike-Share Analysis
+# Airline and Airport Analysis
 
 This is a case study taken from Coursera which I had worked on while undertaking the Google Data Analytics Professional Certificate. All of the original datasets were provided by Coursera and are about a **fictional** company named Cyclistic. As the dataset was extremely large, I found it easier to work on the analysis through R Desktop.
 
@@ -39,12 +39,46 @@ Main Dataset
 
 <br/><br/>
 
-Thereafter, I added a few extra columns to aid the analysis.
+## Analysis & Findings: Airlines
 
-Next, I found some issues with the data in certain columns. The "member_casual" column had varying names for members and casual users as a result of the dataset originating from different quarters and thus, I standarised this column to only contain "member" and "casual". I also removed negative values from the "ride_length" column, as well as rows which had a start station of "HQ QR" in the "start_station_name" column as these entries were for bikes which were taken out of docks and checked for quality by Cyclistic. 
+### Full 12 Month Period
 
-<br/><br/>
+(header)
+(chart of airline comparison) (chart of airline comparison scatterplot)
 
-<p align="center"> <b>
-Cleaned Extra Columns
-</b> </p>
+-description-
+
+### Peak 3 Month Period (Jun-Aug)
+
+(header)
+(chart of airline comparison during peak) (chart of airline comparison scatterplot during peak)
+
+-description-
+
+## Analysis & Findings: Airports
+
+(header)
+(chart of airport comparison 1) (chart of airport comparison 2)
+
+-description-
+
+(header)
+(chart of airport connectivity)
+
+-description-
+
+(header)
+(chart of seasonal impact on types of delay) (chart of seasonal impact on performance)
+
+-description-
+
+## Map Visualisations of Airports
+
+(map of airport connectivity)
+
+-description-
+
+(header)
+(map of weather delays)
+
+-description-
