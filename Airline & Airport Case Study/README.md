@@ -48,12 +48,11 @@ Airline Comparison
 </b> </p>
 
 <p align="center">
-<img src="Images/Airline%20Comparison.PNG" width="600"><img src="Images/Airline%20Comparison%20(Scatter).PNG" width="600">
+<img src="Images/Airline%20Comparison.PNG" width="600">
+<img src="Images/Airline%20Comparison%20(Scatter).PNG">
 </p>
 
-(chart of airline comparison) (chart of airline comparison scatterplot)
-
--description-
+From the visualisations, we can see that based on the average delay and percentage of flights delayed, HA, AS and US perform the best. However, they have very few total flights. Comparatively, airlines such as WN, DL, OO and AA have a significantly greater number of flights yet still manage to do relatively well.
 
 ### Peak 3-Month Period (Jun-Aug)
 
@@ -62,12 +61,11 @@ Airline Comparison During Peak Months
 </b> </p>
 
 <p align="center">
-<img src="Images/Airline%20Comparison%20(Peak).PNG"><img src="Images/Airline%20Comparison%20(Peak)%20(Scatter).PNG">
+<img src="Images/Airline%20Comparison%20(Peak).PNG">
+<img src="Images/Airline%20Comparison%20(Peak)%20(Scatter).PNG">
 </p>
 
-(chart of airline comparison during peak) (chart of airline comparison scatterplot during peak)
-
--description-
+When we analyse the performance of the airlines during the busiest months of the year (Jun, Jul, Aug), we find that HA and AS still have the best performance. However, for the larger airlines, DL and OO are still able to main their performance in terms average delay and percentage of delayed flights. AA and WN’s performance, on the other hand, visibly deteriorates during the peak months.
 
 ## Analysis & Findings: Airports
 
@@ -76,12 +74,13 @@ Airport Comparison
 </b> </p>
 
 <p align="center">
-<img src="Images/Airport%20Comparison%201.PNG"><img src="Images/Airport%20Comparison%202.PNG">
+<img src="Images/Airport%20Comparison%201.PNG">
+<img src="Images/Airport%20Comparison%202.PNG">
 </p>
 
-(chart of airport comparison 1) (chart of airport comparison 2)
+For this visualisation, we filter out airports with fewer than 1000 total flights. Taking into account the total flights at each airport, LAX and SFO perform the best with the lowest average delay and lowest percentage of flights delayed. 
 
--description-
+Similarly, here, we also filter out airports with fewer than 1000 total flights. When it comes to average taxi in and out duration, LAX performs quite poorly compared to others, despite doing well in the terms of delays. Airports such as PHX, SFO and LAS have better average taxi in and out durations.
 
 <p align="center"> <b>
 Airport Connectivity
@@ -91,21 +90,20 @@ Airport Connectivity
 <img src="Images/Airport%20Connectivity.PNG">
 </p>
 
-(chart of airport connectivity)
-
--description-
+Airports are also measured by their connectivity, which is the number of connections an airport has to other airports. In this regard, ATL, ORD, DFW, 10397 and 13930 are the top 5.
 
 <p align="center"> <b>
 Seasonal Impact on Airports
 </b> </p>
 
 <p align="center">
-<img src="Images/Seasonal%20Effect%20on%20Types%20of%20Delay.PNG"><img src="Images/Seasonal%20Effect%20on%20Airport%20Performance.PNG">
+<img src="Images/Seasonal%20Effect%20on%20Types%20of%20Delay.PNG">
+<img src="Images/Seasonal%20Effect%20on%20Airport%20Performance.PNG">
 </p>
 
-(chart of seasonal impact on types of delay) (chart of seasonal impact on performance)
+From the visualisation, we can see that the periods with the greatest effects on delays are Jun-Jul and Dec-Feb. These periods experience the highest percentage of delays.
 
--description-
+When comparing taxi durations, we find a similar trend, with Dec-Feb and Jun-Aug experiencing the highest average taxi in and out durations. The number of cancelled flights is also high in Jan, Feb, Jun and Dec. Notably, Feb has the highest number of cancellations by far.
 
 ## Map Visualisations of Airports
 
@@ -117,9 +115,7 @@ Map of Airport Connectivity
 <img src="Images/Airport%20Connectivity%20Map.PNG">
 </p>
 
-(map of airport connectivity)
-
--description-
+This visualisation shows the airports with the best connectivity.
 
 <p align="center"> <b>
 Map of Weather Delays in Airports
@@ -129,6 +125,4 @@ Map of Weather Delays in Airports
 <img src="Images/Map%20of%20Weather%20Delays.PNG">
 </p>
 
-(map of weather delays)
-
--description-
+This visualisation shows the regions which experience the most weather delays. From the map, we can see that weather delays occur most frequently in airports found near the coastline. However, there are more airports located near the coastlines and thus, the high density of weather delays in these regions could also be attributed to this.
