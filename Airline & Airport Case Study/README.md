@@ -34,40 +34,55 @@ Main Dataset
 </b> </p>
 
 <p align="center">
-<img src="Images/Airline%20Comparison%20(Peak)%20(Scatter).PNG">
+<img src="Images/Airline%20Comparison%20(Peak)%20(Scatter).PNG"><img src="Images/Airline%20Comparison%20(Peak)%20(Scatter).PNG">
 </p>
 
 <br/><br/>
 
 ## Analysis & Findings: Airlines
 
-### Full 12 Month Period
+### Full 12-Month Period
 
-(header)
+<p align="center"> <b>
+Airline Comparison
+</b> </p>
+
 (chart of airline comparison) (chart of airline comparison scatterplot)
 
 -description-
 
-### Peak 3 Month Period (Jun-Aug)
+### Peak 3-Month Period (Jun-Aug)
 
-(header)
+<p align="center"> <b>
+Airline Comparison
+</b> </p>
+
 (chart of airline comparison during peak) (chart of airline comparison scatterplot during peak)
 
 -description-
 
 ## Analysis & Findings: Airports
 
-(header)
+<p align="center"> <b>
+Airline Comparison
+</b> </p>
+
 (chart of airport comparison 1) (chart of airport comparison 2)
 
 -description-
 
-(header)
+<p align="center"> <b>
+Airline Comparison
+</b> </p>
+
 (chart of airport connectivity)
 
 -description-
 
-(header)
+<p align="center"> <b>
+Airline Comparison
+</b> </p>
+
 (chart of seasonal impact on types of delay) (chart of seasonal impact on performance)
 
 -description-
@@ -78,7 +93,10 @@ Main Dataset
 
 -description-
 
-(header)
+<p align="center"> <b>
+Airline Comparison
+</b> </p>
+
 (map of weather delays)
 
 -description-
