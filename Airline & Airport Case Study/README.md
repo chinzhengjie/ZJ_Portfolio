@@ -54,6 +54,8 @@ Airline Comparison
 
 From the visualisations, we can see that based on the average delay and percentage of flights delayed, HA, AS and US perform the best. However, they have very few total flights. Comparatively, airlines such as WN, DL, OO and AA have a significantly greater number of flights yet still manage to do relatively well.
 
+<br/>
+
 ### Peak 3-Month Period (Jun-Aug)
 
 <p align="center"> <b>
