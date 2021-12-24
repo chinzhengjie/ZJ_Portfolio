@@ -48,7 +48,6 @@ Airline Comparison
 </b> </p>
 
 <p align="center">
-<img src="Images/Airline%20Comparison.PNG" width="600">
 <img src="Images/Airline%20Comparison%20(Scatter).PNG">
 </p>
 
@@ -63,7 +62,6 @@ Airline Comparison During Peak Months
 </b> </p>
 
 <p align="center">
-<img src="Images/Airline%20Comparison%20(Peak).PNG">
 <img src="Images/Airline%20Comparison%20(Peak)%20(Scatter).PNG">
 </p>
 
@@ -99,8 +97,8 @@ Seasonal Impact on Airports
 </b> </p>
 
 <p align="center">
-<img src="Images/Seasonal%20Effect%20on%20Types%20of%20Delay.PNG">
-<img src="Images/Seasonal%20Effect%20on%20Airport%20Performance.PNG">
+<img src="Images/Seasonal%20Effect%20on%20Types%20of%20Delay.PNG" width="550">
+<img src="Images/Seasonal%20Effect%20on%20Airport%20Performance.PNG" width="550">
 </p>
 
 From the visualisation, we can see that the periods with the greatest effects on delays are Jun-Jul and Dec-Feb. These periods experience the highest percentage of delays.
