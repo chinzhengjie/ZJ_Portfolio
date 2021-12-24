@@ -48,7 +48,7 @@ Airline Comparison
 </b> </p>
 
 <p align="center">
-<img src="Images/Airline%20Comparison.PNG" width="500" height="500"><img src="Images/Airline%20Comparison%20(Scatter).PNG" width="500">
+<img src="Images/Airline%20Comparison.PNG" width="600"><img src="Images/Airline%20Comparison%20(Scatter).PNG" width="600">
 </p>
 
 (chart of airline comparison) (chart of airline comparison scatterplot)
