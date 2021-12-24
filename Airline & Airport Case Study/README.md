@@ -97,8 +97,8 @@ Seasonal Impact on Airports
 </b> </p>
 
 <p align="center">
-<img src="Images/Seasonal%20Effect%20on%20Types%20of%20Delay.PNG" width="550">
-<img src="Images/Seasonal%20Effect%20on%20Airport%20Performance.PNG" width="550">
+<img src="Images/Seasonal%20Effect%20on%20Types%20of%20Delay.PNG" width="500">
+<img src="Images/Seasonal%20Effect%20on%20Airport%20Performance.PNG" width="500">
 </p>
 
 From the visualisation, we can see that the periods with the greatest effects on delays are Jun-Jul and Dec-Feb. These periods experience the highest percentage of delays.
