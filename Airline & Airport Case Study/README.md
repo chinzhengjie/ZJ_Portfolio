@@ -127,11 +127,11 @@ Map of Airport Connectivity
 This map shows the airports with the best connectivity. There are 7 airports which cater to more than 100 unique routes, all of which are represented by red data points and are labelled with their corresponding airport IATA code.
 
 <p align="center"> <b>
-Map of Weather Delays in Airports
+Heatmap of Weather Delays in Airports
 </b> </p>
 
 <p align="center">
 <img src="Images/Map%20of%20Weather%20Delays.PNG">
 </p>
 
-Finally, this map shows the regions which experience the most weather delays. From the map, it seems that weather delays occur most frequently in airports found near the east coastline. However, there are more airports located in this region and thus, the higher density of weather delays in these regions is also partially attributed to this.
+Finally, this heatmap shows the regions which experience the most weather delays. From the map, it seems that weather delays occur most frequently in airports found near the east coastline. However, there are more airports located in this region and thus, the higher density of weather delays in these regions is also partially attributed to this.
