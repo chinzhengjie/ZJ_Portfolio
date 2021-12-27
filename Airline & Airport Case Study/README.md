@@ -1,21 +1,24 @@
 # Airline and Airport Analysis
 
-This is a case study taken from Coursera which I had worked on while undertaking the Google Data Analytics Professional Certificate. All of the original datasets were provided by Coursera and are about a **fictional** company named Cyclistic. As the dataset was extremely large, I found it easier to work on the analysis through R Desktop.
+This project stems from an assignment I worked on while enrolled in a data analytics module in National University of Singapore (NUS). All datasets were provided by NUS professor Liu QiZhang. In this project, I used R to analyse relevant data to determine which airports and airlines are the best choices for travellers.
 
 <br/>
 
 ## Background
 
-Cyclistic is a bike-share company based in Chicago. They launched a successful bike-share offering in 2016 and since then, the program has grown to a fleet of 5,824 bicycles that are geotracked and locked into a network of 692 stations across Chicago. The bikes can be unlocked from one station and returned to any other station in the system anytime. Cyclistic’s marketing strategy has relied on building general awareness and appealing to broad consumer segments. One approach that helped to make these possible was Cyclistic's flexibile pricing plans: single-ride passes, full-day passes, and annual memberships. Customers who purchase single-ride or full-day passes are referred to as **casual** users. Customers who purchase annual memberships are Cyclistic **members**. Subsequently, Cyclistic’s finance analysts have concluded that annual members are much more profitable than casual users and they believe that maximising the number of annual members will be key to future growth.
+There are 3 datasets which will be utilised in this project: 
 
-<br/>
+<b> airlines.csv </b> - This contains the IATA code and name of 15 airlines in the United States.
+<b> airports.csv </b> - This contains the IATA code, name and location of all airports in the United States.
+<b> flights.csv </b> - This contains a significant amount of data regarding the flights which occurred in the United States over the entire year of 2015. This includes information such as the airports and airlines involved, various types of delays experienced during the flights and many other details.
 
-## Approach
+Over the course of this project, I will attempt to answer the following questions: 
 
-The 2 main questions of the case study are: 
+1. Which airline to choose or avoid when travelling?
 
-1. How do annual members and casual users use Cyclistic bikes differently?
-2. How can Cyclistic design marketing strategies aimed at converting casual riders into annual members?
+2. Which airport to choose or avoid when travelling?
+
+3. What is the seasonal effect on flight performance?
 
 The purpose of this project is to identify any potentially useful trends found in the data for each user type (member and casual). I mainly focused on segregating the data by the user type, followed by the days of the week and months of the year in order to find any difference between the usage of members and casual users throughout different time periods. Additionally, I will also point out any unsual characteristics of the data that I come across.
 
