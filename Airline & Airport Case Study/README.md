@@ -57,7 +57,7 @@ Airline Comparison
 </b> </p>
 
 <p align="center">
-<img src="Images/Airline%20Comparison%20(Scatter).PNG">
+<img src="Images/Airline%20Comparison%20%20(Scatter).PNG">
 </p>
 
 From the scatterplot above, we can see that based on the average delay and percentage of flights delayed, the airlines HA, AS and US perform the best. However, they have very few total flights. Comparatively, airlines such as WN, DL, AA and OO have a significantly greater number of flights yet still manage to do relatively well which is even more impressive and suggests that these could be more ideal choices.
@@ -71,7 +71,7 @@ Airline Comparison During Peak Months
 </b> </p>
 
 <p align="center">
-<img src="Images/Airline%20Comparison%20(Peak)%20(Scatter).PNG">
+<img src="Images/Airline%20Comparison%20%20(Peak)%20(Scatter).PNG">
 </p>
 
 When we analyse the performance of the airlines during the busiest months of the year (Jun, Jul, Aug), we find that HA and AS still have the best performance. For the larger airlines, DL, AA and OO are still able to main their performance in terms average delay and percentage of delayed flights. However, AA and WN’s performance, on the other hand, visibly deteriorates during the peak months.
