@@ -1,6 +1,6 @@
 # Airline and Airport Analysis
 
-This project stems from an assignment I worked on while enrolled in a data analytics module in National University of Singapore (NUS). All datasets were provided by NUS professor Liu Qi Zhang. In this project, I used R programming to analyse and visualise relevant data to determine which airports and airlines are the best choices for travellers.
+This project was part of an assignment I worked on while enrolled in a data analytics module in National University of Singapore (NUS). All datasets were provided by NUS professor Liu Qi Zhang. In this project, I used R programming to analyse and visualise the provided datasets to determine which airports and airlines are the best choices for travellers, as well as provide some unique insights gathered from the data.
 
 <br/>
 
