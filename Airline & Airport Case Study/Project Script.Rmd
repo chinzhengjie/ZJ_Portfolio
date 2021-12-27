@@ -116,6 +116,8 @@ grid.arrange(avrg_delay_plot,delay_perc_plot,total_flights_plot,top="Airline Com
 airline_stats %>% ggplot(aes(x=delay_perc,y=avrg_delay,size=count)) + 
   geom_point(aes(color=AIRLINE)) + 
   geom_text(aes(label=AIRLINE,hjust=-0.7,vjust=0.3),size=3.5) +
+  scale_x_continuous(limits = c(10, 37)) +
+  scale_y_continuous(limits = c(10, 50)) +
   labs(title="Airline Comparison",x="Percentage of Flights Delayed",y="Average Delay (Minutes)",size="Total Flights",color="Airline")
 ```
 
@@ -178,6 +180,8 @@ grid.arrange(avrg_delay_plot_b,delay_perc_plot_b,total_flights_plot_b,top="Airli
 airline_stats_b %>% ggplot(aes(x=delay_perc,y=avrg_delay,size=count)) + 
   geom_point(aes(color=AIRLINE)) + 
   geom_text(aes(label=AIRLINE,hjust=-0.7,vjust=0.3),size=3.5) +
+  scale_x_continuous(limits = c(10, 37)) +
+  scale_y_continuous(limits = c(10, 50)) +
   labs(title="Airline Comparison (Peak Months)",x="Percentage of Flights Delayed",y="Average Delay (Minutes)",size="Total Flights",color="Airline")
 ```
 
