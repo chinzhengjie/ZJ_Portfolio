@@ -28,7 +28,13 @@ Over the course of this project, I will be attempting to answer the following qu
 
 3. What is the seasonal effect on flight performance?
 
-Thus, the goal is ultimately to find useful insights about airports and airlines in the United States and to identify any major trends in the datasets. Since the flights.csv file contains the most useful information, it will be the main dataset that is used in the analysis. I haved detailed my process and findings below.
+Thus, the goal is ultimately to find useful insights about airports and airlines in the United States and to identify any major trends in the datasets. Since the flights.csv file contains the most useful information, it will be the main dataset that is used in the analysis. 
+
+In the analysis for the airlines, I have split the comparison into two parts. The first includes data from the entire year and the second which includes only data from the busiest 3-month period of the year, June to August. The airlines will be compared by their average delay time, percentage of flights delayed and total number of flights.
+
+In the analysis for the airports, each airport will be compared by their average delay time, percentage of flights delayed, total number of flights, average taxi in time, average taxi out time and airport connectivity. On top of this, there are five different types of delays which are commonly experienced by flights. These include air system delays, airline delays, late aircraft delays, security delays and weather delays. These will be used to help determine the impact of seasonality on airports.
+
+I haved detailed my process and findings below.
 
 <br/>
 
@@ -42,6 +48,8 @@ Furthermore, flights that departed and arrived on different days were incorrectl
 
 ## Analysis & Findings: Airlines
 
+For all the scatterplot visualisations, the airports and airlines with more ideal results are found in the <b> bottom left quadrant </b> of the charts as these are characterised by shorter and fewer delays for airlines and airports, as well as shorter average taxi in and taxi out times for airports. <b> Larger data points </b> represent a larger sample size of flights which equates to more accurate statistics and suggests that the corresponding airports or airlines are able to handle a greater number of flights.
+
 ### Full 12-Month Period
 
 <p align="center"> <b>
@@ -52,7 +60,7 @@ Airline Comparison
 <img src="Images/Airline%20Comparison%20(Scatter).PNG">
 </p>
 
-From the visualisations, we can see that based on the average delay and percentage of flights delayed, HA, AS and US perform the best. However, they have very few total flights. Comparatively, airlines such as WN, DL, OO and AA have a significantly greater number of flights yet still manage to do relatively well.
+From the scatterplot above, we can see that based on the average delay and percentage of flights delayed, the airlines HA, AS and US perform the best. However, they have very few total flights. Comparatively, airlines such as WN, DL, AA and OO have a significantly greater number of flights yet still manage to do relatively well which is even more impressive and suggests that these could be more ideal choices.
 
 <br/>
 
@@ -66,7 +74,7 @@ Airline Comparison During Peak Months
 <img src="Images/Airline%20Comparison%20(Peak)%20(Scatter).PNG">
 </p>
 
-When we analyse the performance of the airlines during the busiest months of the year (Jun, Jul, Aug), we find that HA and AS still have the best performance. However, for the larger airlines, DL and OO are still able to main their performance in terms average delay and percentage of delayed flights. AA and WN’s performance, on the other hand, visibly deteriorates during the peak months.
+When we analyse the performance of the airlines during the busiest months of the year (Jun, Jul, Aug), we find that HA and AS still have the best performance. For the larger airlines, DL, AA and OO are still able to main their performance in terms average delay and percentage of delayed flights. However, AA and WN’s performance, on the other hand, visibly deteriorates during the peak months.
 
 ## Analysis & Findings: Airports
 
