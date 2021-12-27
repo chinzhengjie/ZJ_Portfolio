@@ -101,6 +101,8 @@ Airport Connectivity
 
 Airports are also measured by their connectivity, which is the number of unique connections an airport has to other airports. In this regard, ATL, ORD, DFW, 10397 and 13930 are the top 5.
 
+## Seasonal Impact on Flights
+
 <p align="center"> <b>
 Seasonal Impact on Airports
 </b> </p>
@@ -110,9 +112,7 @@ Seasonal Impact on Airports
 <img src="Images/Seasonal%20Effect%20on%20Types%20of%20Delay.PNG" width="500">
 </p>
 
-When comparing taxi durations, we find a similar trend, with Dec-Feb and Jun-Aug experiencing the highest average taxi in and out durations. The number of cancelled flights is also high in Jan, Feb, Jun and Dec. Notably, Feb has the highest number of cancellations by far.
-
-From the visualisation, we can see that the periods with the greatest effects on delays are Jun-Jul and Dec-Feb. These periods experience the highest percentage of delays.
+When comparing the seasonal impact on all flights, we can see a clear trend. Dec-Feb and Jun-Aug experience the highest average taxi in and out durations. Also, the number of cancelled flights is high in Jan, Feb, Jun and Dec with Feb having the highest number of cancellations by far. For the seasonal impact on different types of delays, there is a similar trend, where delays peak around Dec-Feb and Jun-Aug. This suggests that these are the busiest periods during the year for air travel.
 
 ## Map Visualisations of Airports
 
@@ -124,7 +124,7 @@ Map of Airport Connectivity
 <img src="Images/Map%20of%20Airport%20Connectivity.PNG">
 </p>
 
-This visualisation shows the airports with the best connectivity.
+This map shows the airports with the best connectivity. There are 7 airports which cater to more than 100 unique routes. These are represented by red data points and are labelled with their corresponding airport IATA code.
 
 <p align="center"> <b>
 Map of Weather Delays in Airports
@@ -134,4 +134,4 @@ Map of Weather Delays in Airports
 <img src="Images/Map%20of%20Weather%20Delays.PNG">
 </p>
 
-This visualisation shows the regions which experience the most weather delays. From the map, we can see that weather delays occur most frequently in airports found near the coastline. However, there are more airports located near the coastlines and thus, the high density of weather delays in these regions could also be attributed to this.
+Finally, this map shows the regions which experience the most weather delays. From the map, it seems that weather delays occur most frequently in airports found near the east coastline. However, there are more airports located in this region and thus, the higher density of weather delays in these regions is also partially attributed to this.
