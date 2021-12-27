@@ -77,7 +77,7 @@ Airport Connectivity
 </b> </p>
 
 <p align="center">
-<img src="Images/Airport%20Connectivity.PNG">
+<img src="Images/Airport%20%20Connectivity.PNG">
 </p>
 
 Airports are also measured by their connectivity, which is the number of connections an airport has to other airports. In this regard, ATL, ORD, DFW, 10397 and 13930 are the top 5.
@@ -102,7 +102,7 @@ Map of Airport Connectivity
 </b> </p>
 
 <p align="center">
-<img src="Images/Airport%20Connectivity%20Map.PNG">
+<img src="Images/Map%20of%20Airport%20Connectivity.PNG">
 </p>
 
 This visualisation shows the airports with the best connectivity.
