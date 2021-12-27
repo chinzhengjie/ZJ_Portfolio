@@ -1,6 +1,6 @@
 # Airline and Airport Analysis
 
-This project stems from an assignment I worked on while enrolled in a data analytics module in National University of Singapore (NUS). All datasets were provided by NUS professor Liu QiZhang. In this project, I used R to analyse relevant data to determine which airports and airlines are the best choices for travellers.
+This project stems from an assignment I worked on while enrolled in a data analytics module in National University of Singapore (NUS). All datasets were provided by NUS professor Liu Qi Zhang. In this project, I used R programming to analyse and visualise relevant data to determine which airports and airlines are the best choices for travellers.
 
 <br/>
 
@@ -9,26 +9,34 @@ This project stems from an assignment I worked on while enrolled in a data analy
 There are 3 datasets which will be utilised in this project: 
 
 <b> airlines.csv </b> - This contains the IATA code and name of 15 airlines in the United States.
+
+<br/>
+
 <b> airports.csv </b> - This contains the IATA code, name and location of all airports in the United States.
+
+<br/>
+
 <b> flights.csv </b> - This contains a significant amount of data regarding the flights which occurred in the United States over the entire year of 2015. This includes information such as the airports and airlines involved, various types of delays experienced during the flights and many other details.
 
-Over the course of this project, I will attempt to answer the following questions: 
+<br/>
 
-1. Which airline to choose or avoid when travelling?
+Over the course of this project, I will be attempting to answer the following questions: 
 
-2. Which airport to choose or avoid when travelling?
+1. Which airline should be chosen or avoided when travelling?
+
+2. Which airport should be chosen or avoided when travelling?
 
 3. What is the seasonal effect on flight performance?
 
-The purpose of this project is to identify any potentially useful trends found in the data for each user type (member and casual). I mainly focused on segregating the data by the user type, followed by the days of the week and months of the year in order to find any difference between the usage of members and casual users throughout different time periods. Additionally, I will also point out any unsual characteristics of the data that I come across.
-
-I haved detailed my process and findings below.
+Thus, the goal is ultimately to find useful insights about airports and airlines in the United States and to identify any major trends in the datasets. Since the flights.csv file contains the most useful information, it will be the main dataset that is used in the analysis. I haved detailed my process and findings below.
 
 <br/>
 
 ## Data Processing and Cleaning
 
-After importing the 4 quarters of data provided (Q2, Q3, Q4 of 2019 and Q1 of 2020), the most important step would be to merge these into 1 large dataset. Thus, the first step was to ensure that each quarter's dataset had consistent headers and consistent data types. I chose to use the most recent quarter, Q1 of 2020, as the reference point for the columns. Furthermore, there were certain columns, such as Longitude, Latitude, Gender, etc., which had data which was no longer tracked by Cyclistic and were not available in the most recent quarter. Thus, after merging the 4 datasets, I removed all the unnecessary columns from the main dataset.
+Although the dataset was relatively clean, there were some issues regarding the way in which the data was presented in columns which had date and time variables. For example, the column "SCHEDULED_DEPARTURE" represents the time which flights were scheduled to depart from their origin airport. If a flight was supposed to depart at 05:45am, it was simple represented as the integer "545". The columns affected by this include: "SCHEDULED_DEPARTURE", "DEPARTURE_TIME", "WHEELS_OFF", "WHEELS_ON", "SCHEDULED_ARRIVAL" and "ARRIVAL_TIME". Therefore, I created new columns for each of these to represent the time and date in their proper datetime formats. I also combined the "YEAR", "MONTH" and "DAY" columns into a new column with the correct datetime format.
+
+Furthermore, flights that departed and arrived on different days were incorrectly shown. For example, a flight which departed at "01/01/2015 23:00" and arrived the following day at "02/01/2015 01:00" was incorrectly shown to arrive at "01/01/2015 01:00". Thus, I fixed the issue by conditionally adding one day to each data entry affected.
 
 <br/>
 
