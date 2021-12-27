@@ -104,7 +104,7 @@ Airports are also measured by their connectivity, which is the number of unique 
 ## Seasonal Impact on Flights
 
 <p align="center"> <b>
-Seasonal Impact on Airports
+Seasonal Impact on Flights
 </b> </p>
 
 <p align="center">
