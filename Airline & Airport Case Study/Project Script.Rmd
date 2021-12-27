@@ -234,7 +234,7 @@ flights_cleaned %>% group_by(ORIGIN_AIRPORT) %>%
   summarise(count = n_distinct(DESTINATION_AIRPORT)) %>% 
   arrange(-count) %>% 
   top_n(20) %>% 
-  ggplot(aes(x=reorder(ORIGIN_AIRPORT, count),y=count,fill=ORIGIN_AIRPORT)) + 
+  ggplot(aes(x=reorder(ORIGIN_AIRPORT, count),y=count)) + 
   geom_bar(stat="identity",width=0.7) + 
   labs(title="Airport Connectivity",y="Number of Unique Routes") +
   theme(axis.title.y=element_blank(),legend.position = "none") +
