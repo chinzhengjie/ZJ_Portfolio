@@ -321,7 +321,7 @@ cancelled_flights <- flights_cleaned %>% mutate(month=month(date)) %>%
 grid.arrange(taxi_in,taxi_out,cancelled_flights,top="Seasonal Effect on Performance")
 ```
 
-### Visualise data on a map
+### Map Visualisations
 ```{r}
 
 connectivity <- flights_cleaned %>% group_by(ORIGIN_AIRPORT) %>% 
@@ -342,10 +342,11 @@ map1 <- get_map(location=loc,zoom=2,source="google",maptype="roadmap")
 m1 <- ggmap(map1, base_layer = ggplot(data=airport_connectivity,aes(x=LONGITUDE,y=LATITUDE,color=unique_routes)))
 ```
 
-### Airport Connectivity
+### Map of Airport Connectivity
 ```{r, fig.width=8,fig.height=8}
-m1 + geom_point(alpha=0.9,size=1.5) +
-  geom_point(shape = 1,size = 1.5,colour = "black",alpha=0.2) +
+m1 + geom_point(alpha=0.6,size=1.5) +
+  geom_point(shape = 1,size = 1.5,colour = "white",alpha=0.1) +
+  geom_text(aes(label=ifelse(unique_routes>100,as.character(IATA_CODE),'')),hjust=0.5,vjust=-0.5,color="black",size=3.5,alpha=5) +
   labs(title="Airport Connectivity",x="Longitude",y="Latitude",color="Unique Routes") +
   scale_x_continuous(limits = c(-180, -60), expand = c(0, 0)) +
   scale_y_continuous(limits = c(10, 75), expand = c(0, 0)) +
@@ -353,7 +354,7 @@ m1 + geom_point(alpha=0.9,size=1.5) +
 ```
 
 
-### Weather delays across regions
+### Map of Weather Delays across regions
 ```{r}
 weather_delay <- flights_cleaned %>% filter(WEATHER_DELAY>0) %>% 
   select(ORIGIN_AIRPORT,WEATHER_DELAY) %>% 
