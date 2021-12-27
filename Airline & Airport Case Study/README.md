@@ -30,7 +30,7 @@ Over the course of this project, I will be attempting to answer the following qu
 
 Thus, the goal is ultimately to find useful insights about airports and airlines in the United States and to identify any major trends in the datasets. Since the flights.csv file contains the most useful information, it will be the main dataset that is used in the analysis. 
 
-In the analysis for the airlines, I have split the comparison into two parts. The first includes data from the entire year and the second which includes only data from the busiest 3-month period of the year, June to August. The airlines will be compared by their average delay time, percentage of flights delayed and total number of flights.
+In the analysis for the airlines, I have split the comparison into two parts. The first includes data from the entire year and the second which includes only data from the busiest 3-month period of the year, June to August. The airlines will be compared by their average delay time, percentage of flights delayed and total number of flights in 2015.
 
 In the analysis for the airports, each airport will be compared by their average delay time, percentage of flights delayed, total number of flights, average taxi in time, average taxi out time and airport connectivity. On top of this, there are five different types of delays which are commonly experienced by flights. These include air system delays, airline delays, late aircraft delays, security delays and weather delays. These will be used to help determine the impact of seasonality on airports.
 
@@ -48,7 +48,7 @@ Furthermore, flights that departed and arrived on different days were incorrectl
 
 ## Analysis & Findings: Airlines
 
-For all the scatterplot visualisations, the airports and airlines with more ideal results are found in the <b> bottom left quadrant </b> of the charts as these are characterised by shorter and fewer delays for airlines and airports, as well as shorter average taxi in and taxi out times for airports. <b> Larger data points </b> represent a larger sample size of flights which equates to more accurate statistics and suggests that the corresponding airports or airlines are able to handle a greater number of flights.
+For all the scatter plots, the airports and airlines with more ideal results are found in the <b> bottom left quadrant </b> of the charts as these are characterised by shorter and fewer delays for airlines and airports, as well as shorter average taxi in and taxi out times for airports. <b> Larger data points </b> represent a larger sample size of flights which equates to more accurate statistics and suggests that the corresponding airports or airlines are able to handle a greater number of flights.
 
 ### Full 12-Month Period
 
@@ -60,7 +60,7 @@ Airline Comparison
 <img src="Images/Airline%20Comparison%20%20(Scatter).PNG">
 </p>
 
-From the scatterplot above, we can see that based on the average delay and percentage of flights delayed, the airlines HA, AS and US perform the best. However, they have very few total flights. Comparatively, airlines such as WN, DL, AA and OO have a significantly greater number of flights yet still manage to do relatively well which is even more impressive and suggests that these could be more ideal choices.
+From the scatter plot above, we can see that based on the average delay and percentage of flights delayed, the airlines HA, AS and US perform the best. However, they have very few total flights compared to airlines such as WN, DL, AA and OO, which have a much greater number of flights and yet still manage to do relatively well. This makes these airlines even more impressive and suggests that these could be the more ideal choices.
 
 <br/>
 
@@ -74,7 +74,7 @@ Airline Comparison During Peak Months
 <img src="Images/Airline%20Comparison%20%20(Peak)%20(Scatter).PNG">
 </p>
 
-When we analyse the performance of the airlines during the busiest months of the year (Jun, Jul, Aug), we find that HA and AS still have the best performance. For the larger airlines, DL, AA and OO are still able to main their performance in terms average delay and percentage of delayed flights. However, AA and WN’s performance, on the other hand, visibly deteriorates during the peak months.
+When we analyse the performance of the airlines during the busiest months of the year (Jun, Jul, Aug), we find that HA, AS and US are still among the best in terms of perforamnce. For the larger airlines, DL, AA and OO are still able to main their performance in terms of average delay and percentage of delayed flights. However, WN’s performance, on the other hand, deteriorates significantly during the peak months. This may suggest that the WN airline struggles at handling the large increase in demand during the peak seasons compared to some of its competitors.
 
 ## Analysis & Findings: Airports
 
@@ -87,9 +87,9 @@ Airport Comparison
 <img src="Images/Airport%20Comparison%202.PNG">
 </p>
 
-For this visualisation, we filter out airports with fewer than 1000 total flights. Taking into account the total flights at each airport, LAX and SFO perform the best with the lowest average delay and lowest percentage of flights delayed. 
+For both of the above visualisations, I filtered out airports with fewer than 1000 total flights. When considering the airports with a greater number of total flights (represented by red and purple data points), LAX and SFO are among the best when it comes to having the lowest average delay and lowest percentage of flights delayed.
 
-Similarly, here, we also filter out airports with fewer than 1000 total flights. When it comes to average taxi in and out duration, LAX performs quite poorly compared to others, despite doing well in the terms of delays. Airports such as PHX, SFO and LAS have better average taxi in and out durations.
+However, when it comes to average taxi in and out duration, LAX performs significantly worse compared to other airports, despite doing well in the terms of delays. Airports with a greater number of total flights such as PHX, SFO and LAS have better average taxi in and out durations. Thus, based on these metrics, SFO seems to be one of the best choices for airports.
 
 <p align="center"> <b>
 Airport Connectivity
@@ -99,7 +99,7 @@ Airport Connectivity
 <img src="Images/Airport%20%20Connectivity.PNG">
 </p>
 
-Airports are also measured by their connectivity, which is the number of connections an airport has to other airports. In this regard, ATL, ORD, DFW, 10397 and 13930 are the top 5.
+Airports are also measured by their connectivity, which is the number of unique connections an airport has to other airports. In this regard, ATL, ORD, DFW, 10397 and 13930 are the top 5.
 
 <p align="center"> <b>
 Seasonal Impact on Airports
