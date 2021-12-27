@@ -124,7 +124,7 @@ Map of Airport Connectivity
 <img src="Images/Map%20of%20Airport%20Connectivity.PNG">
 </p>
 
-This map shows the airports with the best connectivity. There are 7 airports which cater to more than 100 unique routes. These are represented by red data points and are labelled with their corresponding airport IATA code.
+This map shows the airports with the best connectivity. There are 7 airports which cater to more than 100 unique routes, all of which are represented by red data points and are labelled with their corresponding airport IATA code.
 
 <p align="center"> <b>
 Map of Weather Delays in Airports
