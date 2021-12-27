@@ -34,7 +34,7 @@ In the analysis for the airlines, I have split the comparison into two parts. Th
 
 In the analysis for the airports, each airport will be compared by their average delay time, percentage of flights delayed, total number of flights, average taxi in time, average taxi out time and airport connectivity. On top of this, there are five different types of delays which are commonly experienced by flights. These include air system delays, airline delays, late aircraft delays, security delays and weather delays. These will be used to help determine the impact of seasonality on airports.
 
-I haved detailed my process and findings below.
+I have detailed my process and findings below.
 
 <br/>
 
